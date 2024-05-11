@@ -1,3 +1,4 @@
+import 'package:alafdal_app/core/utils/Colors.dart';
 import 'package:alafdal_app/features/splash/widget/SplashView_Body.dart';
 import 'package:flutter/material.dart';
 
@@ -6,6 +7,8 @@ class Splash_View extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: const SplashView_Body());
+    return Scaffold(
+      backgroundColor: primarycolor,
+        body: const SplashView_Body());
   }
 }

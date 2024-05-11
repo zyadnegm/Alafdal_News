@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
          routerConfig: App_Router.router,
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        theme: ThemeData.light().copyWith(scaffoldBackgroundColor: primarycolor)
+        theme: ThemeData.light().copyWith(scaffoldBackgroundColor: white_color)
 
       ),
     );

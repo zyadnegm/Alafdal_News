@@ -15,7 +15,7 @@ class SplashView_Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(Duration(seconds: 2),() {
-      GoRouter.of(context).push(App_Router.khomeViewPath);
+      GoRouter.of(context).push(App_Router.kOnBoardingPath);
     });
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,

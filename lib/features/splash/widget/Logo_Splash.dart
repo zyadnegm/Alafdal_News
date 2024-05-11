@@ -26,7 +26,7 @@ class Logo_Splash extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
-            Text("News",style: Styles.textStyle30.copyWith(color: red_color,fontSize: 35),),
+            Text("News",style: Styles.textStyle30.copyWith(color: red_color,fontSize: 35.sp),),
             Text(
               "الافضل",
               style: TextStyle(
