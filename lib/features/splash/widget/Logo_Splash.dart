@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -5,19 +7,31 @@ import '../../../core/utils/Colors.dart';
 import '../../../core/utils/Styles.dart';
 
 class Logo_Splash extends StatelessWidget {
-  const Logo_Splash({super.key});
+  double alafdal_hight;
+  double alafdal_fontsize;
+  double news_fontsize;
+  double alafdal_arfontsize;
+
+  Logo_Splash(
+      {super.key,
+      required this.alafdal_hight,
+      required this.alafdal_arfontsize,
+      required this.alafdal_fontsize,
+      required this.news_fontsize});
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Column(
       // crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Container(
-          height: 73.h,
+          height: alafdal_hight,
           child: Text(
             "ِAlafdal",
             style: TextStyle(
-                fontSize: 60.sp, color: Colors.white, fontWeight: FontWeight.bold),
+                fontSize: alafdal_fontsize,
+                color: Colors.white,
+                fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
         ),
@@ -25,16 +39,18 @@ class Logo_Splash extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
-            Text("News",style: Styles.textStyle30.copyWith(color: red_color,fontSize: 35.sp),),
+            Text(
+              "News",
+              style: Styles.textStyle30
+                  .copyWith(color: red_color, fontSize: news_fontsize),
+            ),
             Text(
               "الافضل",
               style: TextStyle(
-                  fontSize: 40.sp,
+                  fontSize: alafdal_arfontsize,
                   fontWeight: FontWeight.bold,
                   color: Colors.white),
             ),
-
           ],
         )
       ],

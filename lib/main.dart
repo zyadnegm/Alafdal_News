@@ -1,4 +1,5 @@
 import 'package:alafdal_app/core/utils/App_Router.dart';
+import 'package:alafdal_app/core/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,8 +23,7 @@ class MyApp extends StatelessWidget {
          routerConfig: App_Router.router,
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        theme: ThemeData.light().copyWith(scaffoldBackgroundColor: white_color)
-
+        theme: My_theme.LightTheme
       ),
     );
   }

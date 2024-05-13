@@ -1,4 +1,3 @@
-
 import 'package:alafdal_app/core/utils/Colors.dart';
 import 'package:alafdal_app/core/utils/Styles.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,18 +13,26 @@ class SplashView_Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 2),() {
+    Future.delayed(Duration(seconds: 2), () {
       GoRouter.of(context).push(App_Router.kOnBoardingPath);
     });
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-
       children: [
-        Logo_Splash(),
-        SizedBox(height: 112.h,),
-        Text("تابع جميع الاخبار من مختلف\n    المجالات فى مكان واحد",style: Styles.textStyle25.copyWith(color: white_color),)
+        Logo_Splash(
+          alafdal_hight: 73.h,
+          alafdal_arfontsize: 40.sp,
+          news_fontsize: 30.sp,
+          alafdal_fontsize: 60.sp,
+        ),
+        SizedBox(
+          height: 112.h,
+        ),
+        Text(
+          "تابع جميع الاخبار من مختلف\n    المجالات فى مكان واحد",
+          style: Styles.textStyle25.copyWith(color: white_color),
+        )
       ],
     );
   }
 }
-
