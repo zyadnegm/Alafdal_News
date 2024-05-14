@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:alafdal_app/core/utils/Styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +8,7 @@ import 'OnBoarding_Button.dart';
 
 class OnBoarding_Body extends StatelessWidget {
   const OnBoarding_Body({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class OnBoarding_Body extends StatelessWidget {
           height: 48.h,
         ),
         Center(
-          child:const OnBoarding_Button() ,
+          child:const OnBoarding_Button(txt: "التالي") ,
         )
       ],
     );

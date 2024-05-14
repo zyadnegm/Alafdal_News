@@ -1,10 +1,9 @@
 import 'package:alafdal_app/core/utils/Colors.dart';
 import 'package:alafdal_app/core/utils/Styles.dart';
-import 'package:alafdal_app/features/home/presentaion/views/widget/News_Card.dart';
+import 'package:alafdal_app/features/home/presentaion/views/widget/NewsCard_ListView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeView_Body extends StatelessWidget {
   const HomeView_Body({super.key});
@@ -21,11 +20,7 @@ class HomeView_Body extends StatelessWidget {
               child: Text("عاجل",style: Styles.textStyle30.copyWith(color: blue_color),)),
         ),
         Expanded(
-          child: ListView.builder(
-            itemCount: 10,
-            itemBuilder: (context, index) {
-            return News_Card();
-          },),
+          child: NewsCard_ListView()
         )
 
 

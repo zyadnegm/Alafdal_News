@@ -13,26 +13,28 @@ class SplashView_Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 2), () {
-      GoRouter.of(context).push(App_Router.kOnBoardingPath);
+    Future.delayed(Duration(seconds: 4), () {
+      GoRouter.of(context).pushReplacement(App_Router.khomeViewPath);
     });
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Logo_Splash(
-          alafdal_hight: 73.h,
-          alafdal_arfontsize: 40.sp,
-          news_fontsize: 30.sp,
-          alafdal_fontsize: 60.sp,
-        ),
-        SizedBox(
-          height: 112.h,
-        ),
-        Text(
-          "تابع جميع الاخبار من مختلف\n    المجالات فى مكان واحد",
-          style: Styles.textStyle25.copyWith(color: white_color),
-        )
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Logo_Splash(
+            hight: 350,
+            width: 350,
+
+          ),
+          SizedBox(
+            height: 40.h,
+          ),
+          Text(
+            "تابع جميع الاخبار من مختلف\n    المجالات فى مكان واحد",
+            style: Styles.textStyle25.copyWith(color: white_color),
+          )
+        ],
+      ),
     );
   }
 }

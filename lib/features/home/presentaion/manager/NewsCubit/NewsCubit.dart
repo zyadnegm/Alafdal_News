@@ -6,6 +6,8 @@ import '../../../data/repos/homeRepo.dart';
 class News_Cubit extends Cubit<News_State>{
   News_Cubit(this.homeRepo):super(HomeNews_Init());
   final HomeRepo homeRepo;
+  static News_Cubit get(context)=>BlocProvider.of(context);
+
 
   Future<void>fetchNew({required String endpoint})async {
     emit(HomeNews_Loading());

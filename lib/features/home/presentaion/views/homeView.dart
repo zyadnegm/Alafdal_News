@@ -5,6 +5,7 @@ import 'package:alafdal_app/features/splash/widget/Logo_Splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
@@ -24,7 +25,7 @@ class HomeView extends StatelessWidget {
       HomeView_Body(),
     ];
     return DefaultTabController(
-      initialIndex: 1,
+      initialIndex: 2,
       length: 3,
       child: Scaffold(
         appBar: AppBar(
@@ -33,18 +34,14 @@ class HomeView extends StatelessWidget {
             Container(
                 child: Column(
               children: [
-                SizedBox(
-                  height: 8.h,
-                ),
-                Logo_Splash(
-                  alafdal_fontsize: 20.sp,
-                  alafdal_hight: 25.h,
-                  news_fontsize: 14.sp,
-                  alafdal_arfontsize: 20.sp,
-                ),
-                SizedBox(
-                  height: 25.h,
-                ),
+
+
+                Container(
+                  alignment: Alignment.centerRight,
+                  height: 110.h,
+                  width: 200.w,
+                    child: Image.asset("assets/images/alafdal-news-logo-.png",fit: BoxFit.fill,)),
+
               ],
             ))
           ],
