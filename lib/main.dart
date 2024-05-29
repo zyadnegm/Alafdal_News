@@ -19,8 +19,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var w=MediaQuery.of(context).size.width;
+    var h=MediaQuery.of(context).size.height;
     return ScreenUtilInit(
-      designSize: Size(375, 812),
+      designSize: Size(w, h),
       minTextAdapt: true,
       splitScreenMode: true,
       child: BlocProvider(
