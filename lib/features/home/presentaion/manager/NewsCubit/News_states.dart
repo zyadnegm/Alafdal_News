@@ -1,15 +1,25 @@
 
-import 'package:alafdal_app/features/home/data/models/ArticalModel.dart';
+import 'package:alafdal_app/features/home/data/models/Artical_Model.dart';
 
 abstract class News_State{}
 
 
 class HomeNews_Init extends News_State{}
-class HomeNews_Loading extends News_State{}
+
 class HomeNews_Success extends News_State{
-  final List<Results>news;
+  final List<ArticalModel>news;
   HomeNews_Success(this.news);
 }
+class HomeNews_Success2 extends News_State{
+  final List<ArticalModel>news;
+  HomeNews_Success2(this.news);
+}
+
+class HomeNews_Success3 extends News_State{
+  final List<ArticalModel>news;
+  HomeNews_Success3(this.news);
+}
+
 class HomeNews_Faluire extends News_State{
   final String error;
   HomeNews_Faluire(this.error);

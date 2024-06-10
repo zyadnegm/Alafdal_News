@@ -1,5 +1,8 @@
 import 'package:alafdal_app/core/utils/App_Router.dart';
 import 'package:alafdal_app/core/utils/theme.dart';
+import 'package:alafdal_app/features/home/data/repos/homeRepo.dart';
+import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_Cubit2.dart';
+import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_Cubit3.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,11 +25,19 @@ class MyApp extends StatelessWidget {
     var w=MediaQuery.of(context).size.width;
     var h=MediaQuery.of(context).size.height;
     return ScreenUtilInit(
-      designSize: Size(w, h),
+      designSize: Size(w,h),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: BlocProvider(
-        create: (context) => News_Cubit(HomeRepo_Imp(Api_Service(Dio())))..fetchNew(endpoint: "cnnarabic"),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context) => News_Cubit(HomeRepo_Imp(Api_Service(Dio())))..fetchNew()
+            ,),
+          BlocProvider(create: (context) => News_Cubit2(HomeRepo_Imp(Api_Service(Dio())))..fetchNew2(),),
+          BlocProvider(create: (context) => News_Cubit3(HomeRepo_Imp(Api_Service(Dio())))..fetchNew3()
+            ,),
+
+
+        ],
         child: MaterialApp.router(
             routerConfig: App_Router.router,
             debugShowCheckedModeBanner: false,

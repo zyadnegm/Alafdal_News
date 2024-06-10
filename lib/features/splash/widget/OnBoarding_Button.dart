@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import '../../../core/utils/App_Router.dart';
 import '../../../core/utils/Colors.dart';
 import '../../../core/utils/Styles.dart';
-import '../../home/data/models/ArticalModel.dart';
 
 class OnBoarding_Button extends StatelessWidget {
   const OnBoarding_Button({super.key, required this.txt});

@@ -1,7 +1,6 @@
 import 'package:alafdal_app/core/utils/Colors.dart';
 import 'package:alafdal_app/core/utils/Styles.dart';
-import 'package:alafdal_app/features/home/data/models/ArticalModel.dart';
-import 'package:alafdal_app/features/splash/widget/OnBoarding_Button.dart';
+import 'package:alafdal_app/features/home/data/models/Artical_Model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -10,10 +9,15 @@ import 'package:go_router/go_router.dart';
 class NewDetails_Body extends StatelessWidget {
   const NewDetails_Body({super.key, required this.news});
 
-  final Results news;
+  final ArticalModel news;
+
+
 
   @override
   Widget build(BuildContext context) {
+    var imageurl=news.images??"";
+    String imagehost="https://alafdalnews.com/";
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 17,vertical: 5),
       child: SingleChildScrollView(
@@ -31,7 +35,7 @@ class NewDetails_Body extends StatelessWidget {
             Align(
               alignment: Alignment.center,
               child: Text(
-                news.headline ?? "",
+                news.title ?? "",
                 style: Styles.textStyle21.copyWith(color: blue_color),
                 textAlign: TextAlign.right,
               ),
@@ -47,7 +51,7 @@ class NewDetails_Body extends StatelessWidget {
                 ),
                 Spacer(),
                 Text(
-                  "اليوم السابع",
+                  news.time??"",
                   style: Styles.textStyle16.copyWith(color: gray_color),
                 )
               ],
@@ -55,7 +59,7 @@ class NewDetails_Body extends StatelessWidget {
             SizedBox(
               height: 4,
             ),
-            Image.network(news.image ?? ""),
+            Image.network(imagehost+imageurl),
             SizedBox(
               height: 4,
             ),
@@ -71,27 +75,17 @@ class NewDetails_Body extends StatelessWidget {
             Align(
               alignment: Alignment.center,
               child: Text(
-                news.content ?? "",
+                news.description ?? "",
                 style: Styles.textStyle21,
                 textAlign: TextAlign.right,
               ),
             ),
             SizedBox(height: 12,),
-            InkWell(onTap: () {
-
-            },
-                child: OnBoarding_Button(txt: "الذهاب الي المصدر"))
           ],
         ),
       ),
     );
   }
-  // Future<void> launchURL(Uri url) async {
-  //   if (await canLaunchUrl(url)) {
-  //     await launchUrl(url, mode: LaunchMode.externalApplication); // Or other modes as needed
-  //   } else {
-  //     throw 'Could not launch $url';
-  //   }
-  // }
+
 
 }

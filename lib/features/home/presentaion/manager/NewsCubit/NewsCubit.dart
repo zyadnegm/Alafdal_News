@@ -9,15 +9,28 @@ class News_Cubit extends Cubit<News_State>{
   static News_Cubit get(context)=>BlocProvider.of(context);
 
 
-  Future<void>fetchNew({required String endpoint})async {
-    emit(HomeNews_Loading());
-    var result= await homeRepo.fetchNews(endpoint: endpoint);
+  Future<void>fetchNew()async {
+    var result= await homeRepo.fetchNews(id: 1);
     result.fold((faluire) {
       emit(HomeNews_Faluire(faluire.error_message));
+      print(faluire.error_message);
     }, (news) {
 
       emit(HomeNews_Success(news));
     });
   }
+
+
+  Future<void>fetchNew3()async {
+    var result= await homeRepo.fetchNews(id: 6);
+    result.fold((faluire) {
+      emit(HomeNews_Faluire(faluire.error_message));
+      print(faluire.error_message);
+    }, (news) {
+
+      emit(HomeNews_Success(news));
+    });
+  }
+
 
 }

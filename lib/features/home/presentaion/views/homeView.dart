@@ -1,16 +1,17 @@
 import 'package:alafdal_app/core/utils/Colors.dart';
 import 'package:alafdal_app/features/home/presentaion/views/widget/HomeView_Body.dart';
+import 'package:alafdal_app/features/home/presentaion/views/widget/HomeView_Body2.dart';
+import 'package:alafdal_app/features/home/presentaion/views/widget/HomeView_Body3.dart';
 import 'package:alafdal_app/features/home/presentaion/views/widget/tabBar_text.dart';
-import 'package:alafdal_app/features/splash/widget/Logo_Splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
-
   @override
   Widget build(BuildContext context) {
+
     List<Tab>tabs=[
       Tab(child: TabBar_Text(tabbat_text: "اليوم السابع",),),
       Tab(child: TabBar_Text(tabbat_text: "سكاس نيوز",),),
@@ -20,9 +21,9 @@ class HomeView extends StatelessWidget {
 
     ];
     List<Widget>pages=[
-      HomeView_Body(),
-      HomeView_Body(),
-      HomeView_Body(),
+      HomeView_Body1(),
+      HomeView_Body2(),
+      HomeView_Body3(),
     ];
     return DefaultTabController(
       initialIndex: 2,

@@ -15,12 +15,15 @@ class NewsCard_ListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String imagehost="https://alafdalnews.com/";
+
     return BlocBuilder<News_Cubit,News_State>(
 
       builder: (context, state) {
          if(state is HomeNews_Success){
           return ListView.builder(
             itemBuilder: (context, index) {
+              String imageurl=state.news[index].images??"";
               return InkWell(
                 onTap: () {
                   GoRouter.of(context).push(App_Router.kNewsDetailsPath,extra: state.news[index]);
@@ -36,12 +39,12 @@ class NewsCard_ListView extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(4),
                         child: ClipRRect(
-                          child: Image.network(state.news[index].image??""),
+                          child: Image.network(imagehost+imageurl),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 5),
-                        child: Text(state.news[index].headline??"",style: Styles.textStyle16,textAlign: TextAlign.right,),
+                        child: Text(state.news[index].title??"",style: Styles.textStyle16,textAlign: TextAlign.right,),
                       ),
                       SizedBox(height: 20.h,),
                       Padding(
@@ -61,10 +64,13 @@ class NewsCard_ListView extends StatelessWidget {
         else if(state is HomeNews_Faluire){
           return Center(child: Text(state.error),);
         }
-        else {
+        else if(state is HomeNews_Init) {
           return Container(
               child: Center(child: CircularProgressIndicator(),));
         }
+        else {
+          return Text("data");
+         }
       },
     );
   }
