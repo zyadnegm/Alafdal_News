@@ -4,6 +4,8 @@ import 'package:alafdal_app/features/home/data/models/Artical_Model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class NewDetails_Body extends StatelessWidget {
@@ -63,22 +65,25 @@ class NewDetails_Body extends StatelessWidget {
             SizedBox(
               height: 4,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 6),
-              child: Align(
-                  alignment: Alignment.topRight,
-                  child: Image.asset("assets/images/Vector.png")),
-            ),
             SizedBox(
               height: 8,
             ),
             Align(
               alignment: Alignment.center,
-              child: Text(
-                news.description ?? "",
-                style: Styles.textStyle21,
-                textAlign: TextAlign.right,
-              ),
+              child: Html(data: news.description ??"",
+              style: {
+                "p":Style(textAlign:TextAlign.right,
+                     fontSize: FontSize(21.sp),
+                     fontWeight: FontWeight.w600
+
+                  
+                )
+              }),
+              // child: Text(
+              //   news.description ?? "",
+              //   style: Styles.textStyle21,
+              //   textAlign: TextAlign.right,
+              // ),
             ),
             SizedBox(height: 12,),
           ],

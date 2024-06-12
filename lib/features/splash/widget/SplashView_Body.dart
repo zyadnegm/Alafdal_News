@@ -17,7 +17,7 @@ class SplashView_Body extends StatelessWidget {
       GoRouter.of(context).pushReplacement(App_Router.khomeViewPath);
     });
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

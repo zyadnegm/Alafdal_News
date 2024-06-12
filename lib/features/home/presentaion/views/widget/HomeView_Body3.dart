@@ -1,4 +1,5 @@
 import 'package:alafdal_app/core/utils/Styles.dart';
+import 'package:alafdal_app/features/home/presentaion/views/widget/NewsCard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,80 +14,54 @@ class HomeView_Body3 extends StatelessWidget {
   const HomeView_Body3({super.key});
 
   @override
-
   @override
   Widget build(BuildContext context) {
-    String imagehost="https://alafdalnews.com/";
-
+    String imagehost = "https://alafdalnews.com/";
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
-          child: Align(alignment: Alignment.topRight,
-              child: Text("عاجل",style: Styles.textStyle30.copyWith(color: blue_color),)),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          child: Align(
+              alignment: Alignment.topRight,
+              child: Text(
+                "عاجل",
+                style: Styles.textStyle30.copyWith(color: blue_color),
+              )),
         ),
-        Expanded(
-            child: BlocBuilder<News_Cubit3,News_State>(
-
-              builder: (context, state) {
-
-                if(state is HomeNews_Success3){
-                  return ListView.builder(
-                    itemBuilder: (context, index) {
-                      String imageurl=state.news[index].images??"";
-                      return InkWell(
-                        onTap: () {
-                          GoRouter.of(context).push(App_Router.kNewsDetailsPath,extra: state.news[index]);
-                        },
-                        child: Card(
-                          color: white_color,
-                          elevation: 16,
-                          margin: EdgeInsets.symmetric(horizontal: 45,vertical: 15),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(4),
-                                child: ClipRRect(
-                                  child: Image.network(imagehost+imageurl),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 5),
-                                child: Text(state.news[index].title??"",style: Styles.textStyle16,textAlign: TextAlign.right,),
-                              ),
-                              SizedBox(height: 20.h,),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 13,vertical: 8),
-                                child: Align(alignment: Alignment.bottomRight,
-                                    child: Image.asset("assets/images/Vector.png")),
-                              )
-                            ],
-                          ),
-
-                        ),
-                      );
+        Expanded(child: BlocBuilder<News_Cubit3, News_State>(
+          builder: (context, state) {
+            if (state is HomeNews_Success3) {
+              return ListView.builder(
+                itemBuilder: (context, index) {
+                  String imageurl = state.news[index].images ?? "";
+                  return InkWell(
+                    onTap: () {
+                      GoRouter.of(context).push(App_Router.kNewsDetailsPath,
+                          extra: state.news[index]);
                     },
-                    itemCount: state.news.length,
+                    child: NewsCard(imageurl: imageurl, tittle: state.news[index].title??"",
+                    index: state.news[index],),
                   );
-                }
-                else if(state is HomeNews_Faluire){
-                  return Center(child: Text(state.error),);
-                }
-                else if(state is HomeNews_Init){
-                  return Center(child: CircularProgressIndicator(),);
-                }else{return Text("data");}
-              },
-            )
-        )
-
-
+                },
+                itemCount: state.news.length,
+              );
+            } else if (state is HomeNews_Faluire) {
+              return Center(
+                child: Text(state.error),
+              );
+            } else if (state is HomeNews_Init) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            } else {
+              return Text("data");
+            }
+          },
+        ))
       ],
-
     );
   }
 }
