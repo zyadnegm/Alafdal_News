@@ -7,21 +7,27 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
+
   @override
   Widget build(BuildContext context) {
-
-    List<Tab>tabs=[
-      Tab(child: TabBar_Text(tabbat_text: "اقتصاد",),),
-      Tab(child: TabBar_Text(tabbat_text: "سياسه دوليه ",),),
-      Tab(child: TabBar_Text(tabbat_text: "عاجل ",),)
-
-
-
+    List<Tab> tabs = [
+      Tab(
+        child: TabBar_Text(tabbar_text: "اقتصاد"),
+      ),
+      Tab(
+        child: TabBar_Text(
+          tabbar_text: "سياسه دوليه ",
+        ),
+      ),
+      Tab(
+        child: TabBar_Text(
+          tabbar_text: "عاجل ",
+        ),
+      )
     ];
-    List<Widget>pages=[
+    List<Widget> pages = [
       HomeView_Body1(),
       HomeView_Body2(),
       HomeView_Body3(),
@@ -36,21 +42,26 @@ class HomeView extends StatelessWidget {
             Container(
                 child: Column(
               children: [
-
-
                 Container(
-                  alignment: Alignment.centerRight,
-                  height: 110.h,
-                  width: 200.w,
-                    child: Image.asset("assets/images/alafdal-news-logo-.png",fit: BoxFit.fill,)),
-
+                    alignment: Alignment.centerRight,
+                    height: 110.h,
+                    width: 200.w,
+                    child: Image.asset(
+                      "assets/images/alafdal-news-logo-.png",
+                      fit: BoxFit.fill,
+                    )),
               ],
             ))
           ],
-          bottom:TabBar(tabs: tabs,indicatorColor: red_color,),
+          bottom: TabBar(
+            tabs: tabs,
+            indicatorColor: red_color,
+           isScrollable: false,
 
+          ),
         ),
-        body: TabBarView(children: pages,
+        body: TabBarView(
+          children: pages,
         ),
       ),
     );
