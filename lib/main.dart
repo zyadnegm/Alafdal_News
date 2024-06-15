@@ -1,19 +1,18 @@
 import 'package:alafdal_app/core/utils/App_Router.dart';
 import 'package:alafdal_app/core/utils/theme.dart';
-import 'package:alafdal_app/features/home/data/repos/homeRepo.dart';
 import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_Cubit2.dart';
 import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_Cubit3.dart';
 import 'package:dio/dio.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'core/utils/ApiServer.dart';
-import 'core/utils/Colors.dart';
 import 'features/home/data/repos/homeRepo_Imp.dart';
 import 'features/home/presentaion/manager/NewsCubit/NewsCubit.dart';
+import 'firebase_options.dart';
 
-void main() {
+  void main()  {
   runApp(const MyApp());
 }
 
