@@ -20,10 +20,7 @@ abstract class App_Router {
       builder: (context, state) =>
           HomeView(),
     ),
-    // GoRoute(
-    //   path: kOnBoardingPath,
-    //   builder: (context, state) => const OnBoarding(),
-    // ),
+
     GoRoute(
       path: kNewsDetailsPath,
       builder: (context, state) =>  News_Details(

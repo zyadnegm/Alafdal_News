@@ -1,8 +1,8 @@
+
 import 'package:alafdal_app/core/utils/App_Router.dart';
 import 'package:alafdal_app/core/utils/theme.dart';
 import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_Cubit2.dart';
 import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_Cubit3.dart';
-import 'package:alafdal_app/features/home/presentaion/manager/firebase/Notifications.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -13,12 +13,11 @@ import 'features/home/data/repos/homeRepo_Imp.dart';
 import 'features/home/presentaion/manager/NewsCubit/NewsCubit.dart';
 import 'firebase_options.dart';
 
-  void main() async {
-    WidgetsFlutterBinding.ensureInitialized();
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-    await Firebase_Notifications().initNotifications();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -27,21 +26,26 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var w=MediaQuery.of(context).size.width;
-    var h=MediaQuery.of(context).size.height;
+    var w = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
     return ScreenUtilInit(
-      designSize: Size(w,h),
+      designSize: Size(w, h),
       minTextAdapt: true,
       splitScreenMode: true,
       child: MultiBlocProvider(
         providers: [
-          BlocProvider(create: (context) => News_Cubit(HomeRepo_Imp(Api_Service(Dio())))..fetchNew()
-            ,),
-          BlocProvider(create: (context) => News_Cubit2(HomeRepo_Imp(Api_Service(Dio())))..fetchNew2(),),
-          BlocProvider(create: (context) => News_Cubit3(HomeRepo_Imp(Api_Service(Dio())))..fetchNew3()
-            ,),
-
-
+          BlocProvider(
+            create: (context) =>
+                News_Cubit(HomeRepo_Imp(Api_Service(Dio())))..fetchNew(),
+          ),
+          BlocProvider(
+            create: (context) =>
+                News_Cubit2(HomeRepo_Imp(Api_Service(Dio())))..fetchNew2(),
+          ),
+          BlocProvider(
+            create: (context) =>
+                News_Cubit3(HomeRepo_Imp(Api_Service(Dio())))..fetchNew3(),
+          ),
         ],
         child: MaterialApp.router(
             routerConfig: App_Router.router,
