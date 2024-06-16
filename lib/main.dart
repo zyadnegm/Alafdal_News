@@ -2,6 +2,7 @@ import 'package:alafdal_app/core/utils/App_Router.dart';
 import 'package:alafdal_app/core/utils/theme.dart';
 import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_Cubit2.dart';
 import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_Cubit3.dart';
+import 'package:alafdal_app/features/home/presentaion/manager/firebase/Notifications.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,12 @@ import 'features/home/data/repos/homeRepo_Imp.dart';
 import 'features/home/presentaion/manager/NewsCubit/NewsCubit.dart';
 import 'firebase_options.dart';
 
-  void main()  {
+  void main() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    await Firebase_Notifications().initNotifications();
   runApp(const MyApp());
 }
 

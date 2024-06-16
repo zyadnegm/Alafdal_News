@@ -65,4 +65,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'alafdalnewsuptade.appspot.com',
     iosBundleId: 'com.example.alafdalApp',
   );
+
 }
