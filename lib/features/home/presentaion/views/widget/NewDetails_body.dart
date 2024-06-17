@@ -74,7 +74,7 @@ class NewDetails_Body extends StatelessWidget {
               style: {
                 "p":Style(textAlign:TextAlign.right,
                      fontSize: FontSize(21.sp),
-                     fontWeight: FontWeight.w600
+                     fontWeight: FontWeight.w600,
 
                   
                 )

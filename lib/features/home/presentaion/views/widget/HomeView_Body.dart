@@ -21,7 +21,7 @@ class HomeView_Body1 extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
           child: Align(alignment: Alignment.topRight,
-              child: Text("عاجل",style: Styles.textStyle30.copyWith(color: blue_color),)),
+              child: Text("سياسه دولية",style: Styles.textStyle30.copyWith(color: blue_color),)),
         ),
         Expanded(
           child: BlocBuilder<News_Cubit,News_State>(

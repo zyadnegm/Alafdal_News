@@ -8,7 +8,7 @@ class TabBar_Text extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(tabbar_text,style: Styles.textStyle21.copyWith(color: white_color),);
+    return Text(tabbar_text,style: Styles.textStyle21.copyWith(color: white_color,fontSize: 18),);
 
   }
 }

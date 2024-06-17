@@ -52,6 +52,7 @@ class NewsCard extends StatelessWidget {
                   style: Styles.textStyle16
                       .copyWith(fontWeight: FontWeight.bold,fontSize: 18),
                   textAlign: TextAlign.right,
+
                 ),
               ),
             ),

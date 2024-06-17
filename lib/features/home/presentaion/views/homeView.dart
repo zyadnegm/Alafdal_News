@@ -14,11 +14,11 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Tab> tabs = [
       Tab(
-        child: TabBar_Text(tabbar_text: "اقتصاد"),
+        child: TabBar_Text(tabbar_text: "سياسه دولية"),
       ),
       Tab(
         child: TabBar_Text(
-          tabbar_text: "سياسه دوليه ",
+          tabbar_text: "سياسه محلية ",
         ),
       ),
       Tab(
