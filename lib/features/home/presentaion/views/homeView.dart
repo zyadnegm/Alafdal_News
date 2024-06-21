@@ -1,4 +1,5 @@
 import 'package:alafdal_app/core/utils/Colors.dart';
+import 'package:alafdal_app/features/home/presentaion/views/widget/Custom%20Drawer.dart';
 import 'package:alafdal_app/features/home/presentaion/views/widget/HomeView_Body.dart';
 import 'package:alafdal_app/features/home/presentaion/views/widget/HomeView_Body2.dart';
 import 'package:alafdal_app/features/home/presentaion/views/widget/HomeView_Body3.dart';
@@ -37,7 +38,10 @@ class HomeView extends StatelessWidget {
       initialIndex: 2,
       length: 3,
       child: Scaffold(
+        drawer: CustomDrawer(),
+
         appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.white),
           toolbarHeight: 110.h,
           actions: <Widget>[
             Container(
@@ -47,9 +51,10 @@ class HomeView extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     height: 110.h,
                     width: 200.w,
-                    child: InkWell(onTap: () {
-                      _launchUrl();
-                    },
+                    child: InkWell(
+                      onTap: () {
+                        _launchUrl();
+                      },
                       child: Image.asset(
                         "assets/images/alafdal-news-logo-.png",
                         fit: BoxFit.fill,
@@ -61,9 +66,9 @@ class HomeView extends StatelessWidget {
           bottom: TabBar(
             tabs: tabs,
             indicatorColor: red_color,
-           isScrollable: false,
-            labelPadding: EdgeInsets.symmetric(horizontal: 10),
-
+            dividerColor: Colors.white,
+            isScrollable: false,
+            labelPadding: EdgeInsets.symmetric(horizontal: 6.w),
 
           ),
         ),
@@ -74,12 +79,11 @@ class HomeView extends StatelessWidget {
     );
   }
 }
+
 final Uri _url = Uri.parse('https://alafdalnews.com');
+
 Future<void> _launchUrl() async {
   if (!await launchUrl(_url)) {
     throw Exception('Could not launch $_url');
   }
 }
-
-
-
