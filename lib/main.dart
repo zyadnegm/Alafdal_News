@@ -15,11 +15,34 @@ import 'features/home/presentaion/manager/Notifications/Work_manager.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
     WorkManager_Service().init();
-  runApp(const MyApp());
+  final dio = Dio();
+  final apiService = Api_Service(dio);
+  final homeRepo = HomeRepo_Imp(apiService);
+
+  final newsCubit = News_Cubit(homeRepo);
+  final newsCubit2 = News_Cubit2(homeRepo);
+  final newsCubit3 = News_Cubit3(homeRepo);
+
+  await Future.wait([
+    newsCubit.fetchNew(),
+    newsCubit2.fetchNew2(),
+    newsCubit3.fetchNew3(),
+  ]);
+
+
+  runApp( MyApp(
+    newsCubit: newsCubit,
+    newsCubit2: newsCubit2,
+    newsCubit3: newsCubit3,
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, required this.newsCubit, required this.newsCubit2, required this.newsCubit3});
+  final News_Cubit newsCubit;
+  final News_Cubit2 newsCubit2;
+  final News_Cubit3 newsCubit3;
+
 
   @override
   Widget build(BuildContext context) {
@@ -31,18 +54,9 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       child: MultiBlocProvider(
         providers: [
-          BlocProvider(
-            create: (context) =>
-                News_Cubit(HomeRepo_Imp(Api_Service(Dio())))..fetchNew(),
-          ),
-          BlocProvider(
-            create: (context) =>
-                News_Cubit2(HomeRepo_Imp(Api_Service(Dio())))..fetchNew2(),
-          ),
-          BlocProvider(
-            create: (context) =>
-                News_Cubit3(HomeRepo_Imp(Api_Service(Dio())))..fetchNew3(),
-          ),
+          BlocProvider.value(value: newsCubit),
+          BlocProvider.value(value: newsCubit2),
+          BlocProvider.value(value: newsCubit3),
         ],
         child: MaterialApp.router(
             routerConfig: App_Router.router,
