@@ -3,11 +3,10 @@ import 'package:alafdal_app/features/home/presentaion/views/widget/Custom%20Draw
 import 'package:alafdal_app/features/home/presentaion/views/widget/HomeView_Body.dart';
 import 'package:alafdal_app/features/home/presentaion/views/widget/HomeView_Body2.dart';
 import 'package:alafdal_app/features/home/presentaion/views/widget/HomeView_Body3.dart';
+import 'package:alafdal_app/features/home/presentaion/views/widget/Logo_Icon.dart';
 import 'package:alafdal_app/features/home/presentaion/views/widget/tabBar_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -16,11 +15,11 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Tab> tabs = [
       Tab(
-        child: TabBar_Text(tabbar_text: "سياسه دولية"),
+        child: TabBar_Text(tabbar_text: "سياسة دولية"),
       ),
       Tab(
         child: TabBar_Text(
-          tabbar_text: "سياسه محلية ",
+          tabbar_text: "سياسة محلية ",
         ),
       ),
       Tab(
@@ -38,31 +37,13 @@ class HomeView extends StatelessWidget {
       initialIndex: 2,
       length: 3,
       child: Scaffold(
-        drawer: CustomDrawer(),
+        endDrawer: CustomDrawer(),
 
         appBar: AppBar(
           iconTheme: IconThemeData(color: Colors.white),
           toolbarHeight: 110.h,
-          actions: <Widget>[
-            Container(
-                child: Column(
-              children: [
-                Container(
-                    alignment: Alignment.centerRight,
-                    height: 110.h,
-                    width: 200.w,
-                    child: InkWell(
-                      onTap: () {
-                        _launchUrl();
-                      },
-                      child: Image.asset(
-                        "assets/images/alafdal-news-logo-.png",
-                        fit: BoxFit.fill,
-                      ),
-                    )),
-              ],
-            ))
-          ],
+          leading: Logo_Icon(),
+          leadingWidth: 120.w,
           bottom: TabBar(
             tabs: tabs,
             indicatorColor: red_color,
@@ -80,10 +61,4 @@ class HomeView extends StatelessWidget {
   }
 }
 
-final Uri _url = Uri.parse('https://alafdalnews.com');
 
-Future<void> _launchUrl() async {
-  if (!await launchUrl(_url)) {
-    throw Exception('Could not launch $_url');
-  }
-}

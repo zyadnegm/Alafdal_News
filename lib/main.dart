@@ -19,7 +19,7 @@ void main() async {
   final apiService = Api_Service(dio);
   final homeRepo = HomeRepo_Imp(apiService);
 
-  final newsCubit = News_Cubit(homeRepo);
+  final  newsCubit = News_Cubit(homeRepo);
   final newsCubit2 = News_Cubit2(homeRepo);
   final newsCubit3 = News_Cubit3(homeRepo);
 
