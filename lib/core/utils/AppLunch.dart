@@ -40,6 +40,14 @@ class Applunch{
       throw Exception('Could not launch $_url');
     }
   }
+  static Future<void> launchTelegram() async {
+    Uri _url = Uri.parse('https://t.me/alafdalnews');
+
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
+  }
+
 
 
 

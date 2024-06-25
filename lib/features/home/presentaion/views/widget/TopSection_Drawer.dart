@@ -49,9 +49,9 @@ class TopSection_Drawer extends StatelessWidget {
                 width: 16.w,
               ),
               InkWell(
-                child: Social_Icon(image: "assets/images/X icon.png"),
+                child: Social_Icon(image: "assets/images/telegram.png"),
                 onTap: () {
-                  Applunch.launchX();
+                  Applunch.launchTelegram();
                 },
               )
             ],

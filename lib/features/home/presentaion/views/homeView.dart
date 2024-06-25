@@ -48,8 +48,9 @@ class HomeView extends StatelessWidget {
             tabs: tabs,
             indicatorColor: red_color,
             dividerColor: Colors.white,
-            isScrollable: false,
-            labelPadding: EdgeInsets.symmetric(horizontal: 6.w),
+            isScrollable: true,
+            // padding: EdgeInsets.only(right: 60),
+            labelPadding: EdgeInsets.only(right: 50),
 
           ),
         ),
