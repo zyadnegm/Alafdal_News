@@ -11,7 +11,7 @@ class Applunch{
   }
 
   static Future<void> launchFacebook() async {
-    Uri _url = Uri.parse('https://www.facebook.com/ZyadNegm.526');
+    Uri _url = Uri.parse('https://www.facebook.com/alafdalnews1/');
 
     if (!await launchUrl(_url)) {
       throw Exception('Could not launch $_url');

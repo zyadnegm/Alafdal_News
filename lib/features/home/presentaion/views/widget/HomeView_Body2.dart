@@ -26,7 +26,7 @@ class HomeView_Body2 extends StatelessWidget {
           child: Align(
               alignment: Alignment.topRight,
               child: Text(
-                "سياسه محلية",
+                "سياسة محلية",
                 style: Styles.textStyle30.copyWith(color: blue_color),
               )),
         ),
