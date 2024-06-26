@@ -2,7 +2,6 @@ import 'package:alafdal_app/core/utils/Styles.dart';
 import 'package:alafdal_app/features/home/presentaion/views/widget/NewsCard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/App_Router.dart';
@@ -27,7 +26,7 @@ class HomeView_Body3 extends StatelessWidget {
           child: Align(
               alignment: Alignment.topRight,
               child: Text(
-                "عاجل",
+                "اقتصاد",
                 style: Styles.textStyle30.copyWith(color: blue_color),
               )),
         ),

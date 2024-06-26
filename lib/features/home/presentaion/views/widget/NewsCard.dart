@@ -1,10 +1,8 @@
 import 'package:alafdal_app/core/utils/App_Router.dart';
-import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/NewsCubit.dart';
-import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_states.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 

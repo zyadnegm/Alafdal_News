@@ -13,8 +13,6 @@ class NewDetails_Body extends StatelessWidget {
 
   final ArticalModel news;
 
-
-
   @override
   Widget build(BuildContext context) {
     var imageurl=news.images??"";

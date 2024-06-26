@@ -24,7 +24,7 @@ class HomeView extends StatelessWidget {
       ),
       Tab(
         child: TabBar_Text(
-          tabbar_text: "عاجل ",
+          tabbar_text: "اقتصاد ",
         ),
       )
     ];
@@ -36,26 +36,28 @@ class HomeView extends StatelessWidget {
     return DefaultTabController(
       initialIndex: 2,
       length: 3,
-      child: Scaffold(
-        endDrawer: CustomDrawer(),
-
-        appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.white),
-          toolbarHeight: 110.h,
-          leading: Logo_Icon(),
-          leadingWidth: 120.w,
-          bottom: TabBar(
-            tabs: tabs,
-            indicatorColor: red_color,
-            dividerColor: Colors.white,
-            isScrollable: true,
-            // padding: EdgeInsets.only(right: 60),
-            labelPadding: EdgeInsets.only(right: 50),
-
+      child: SafeArea(
+        child: Scaffold(
+          endDrawer: CustomDrawer(),
+        
+          appBar: AppBar(
+            iconTheme: IconThemeData(color: Colors.white),
+            toolbarHeight: 110.h,
+            leading: Logo_Icon(),
+            leadingWidth: 120.w,
+            bottom: TabBar(
+              tabs: tabs,
+              indicatorColor: red_color,
+              dividerColor: Colors.white,
+              isScrollable: true,
+              // padding: EdgeInsets.only(right: 60),
+              labelPadding: EdgeInsets.only(right: 50),
+        
+            ),
           ),
-        ),
-        body: TabBarView(
-          children: pages,
+          body: TabBarView(
+            children: pages,
+          ),
         ),
       ),
     );

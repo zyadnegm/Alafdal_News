@@ -1,4 +1,6 @@
 import 'package:alafdal_app/features/home/data/models/Artical_Model.dart';
+import 'package:alafdal_app/features/home/data/models/Categories_Model.dart';
+import 'package:alafdal_app/features/home/presentaion/views/CategoriesView.dart';
 import 'package:alafdal_app/features/home/presentaion/views/News_Details.dart';
 import 'package:alafdal_app/features/home/presentaion/views/homeView.dart';
 import 'package:go_router/go_router.dart';
@@ -6,7 +8,8 @@ import 'package:go_router/go_router.dart';
 abstract class App_Router {
   static const khomeViewPath = '/';
   static const kNewsDetailsPath = '/NewsDetail';
-  static const kOnBoardingPath = '/Onboard';
+  static const kCategoriesView = '/categori';
+
 
 
   static final router = GoRouter(routes: [
@@ -22,6 +25,16 @@ abstract class App_Router {
         news: state.extra as ArticalModel
       ),
     ),
+    GoRoute(
+      path: kCategoriesView,
+      builder: (context, state) =>
+          CategoriesView(
+            categories_model: state.extra as Categories_Model,
+
+          ),
+    ),
+
+
 
 
   ]);

@@ -12,7 +12,7 @@ class News_Cubit3 extends Cubit<News_State>{
 
 
   Future<void>fetchNew3()async {
-    var result= await homeRepo.fetchNews(id: 6);
+    var result= await homeRepo.fetchNews(id: 14);
     result.fold((faluire) {
       emit(HomeNews_Faluire(faluire.error_message));
       print(faluire.error_message);

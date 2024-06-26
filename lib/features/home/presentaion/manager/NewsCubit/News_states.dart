@@ -19,6 +19,16 @@ class HomeNews_Success3 extends News_State{
   final List<ArticalModel>news;
   HomeNews_Success3(this.news);
 }
+class Categories_Success extends News_State{
+  final List<ArticalModel>news;
+  Categories_Success(this.news);
+}
+
+
+class Categories_Faluire extends News_State{
+  final String error;
+  Categories_Faluire(this.error);
+}
 
 class HomeNews_Faluire extends News_State{
   final String error;
