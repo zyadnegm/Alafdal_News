@@ -1,6 +1,7 @@
 import 'package:alafdal_app/core/utils/Colors.dart';
 import 'package:alafdal_app/core/utils/Styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TabBar_Text extends StatelessWidget {
   final String tabbar_text;
@@ -8,7 +9,7 @@ class TabBar_Text extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(tabbar_text,style: Styles.textStyle21.copyWith(color: white_color,fontSize: 18),);
+    return Text(tabbar_text,style: Styles.textStyle21.copyWith(color: white_color,fontSize: 18.sp),);
 
   }
 }

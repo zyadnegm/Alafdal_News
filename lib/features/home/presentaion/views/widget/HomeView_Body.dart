@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeView_Body1 extends StatelessWidget {
   const HomeView_Body1({super.key});
@@ -19,7 +20,7 @@ class HomeView_Body1 extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+          padding:  EdgeInsets.symmetric(horizontal: 10.w,vertical: 5.h),
           child: Align(alignment: Alignment.topRight,
               child: Text("سياسة دولية",style: Styles.textStyle30.copyWith(color: blue_color),)),
         ),

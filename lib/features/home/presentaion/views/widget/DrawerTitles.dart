@@ -21,7 +21,7 @@ class DrawerTitles extends StatelessWidget {
         GoRouter.of(context).push(App_Router.kCategoriesView,extra:Categories_Model(categories_tittle: tittle, categories_id: categories_id) );
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 18),
+        padding:  EdgeInsets.symmetric(horizontal: 18.w),
         child: Column(
           children: [
             ListTile(

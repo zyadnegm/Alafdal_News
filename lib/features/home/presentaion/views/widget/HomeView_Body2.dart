@@ -3,6 +3,7 @@ import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_Cub
 import 'package:alafdal_app/features/home/presentaion/views/widget/NewsCard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/App_Router.dart';
@@ -22,7 +23,7 @@ class HomeView_Body2 extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          padding:  EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
           child: Align(
               alignment: Alignment.topRight,
               child: Text(

@@ -24,7 +24,7 @@ class HomeView extends StatelessWidget {
       ),
       Tab(
         child: TabBar_Text(
-          tabbar_text: "اقتصاد ",
+          tabbar_text: "عاجل ",
         ),
       )
     ];

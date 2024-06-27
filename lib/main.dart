@@ -7,14 +7,16 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:workmanager/workmanager.dart';
 import 'core/utils/ApiServer.dart';
 import 'features/home/data/repos/homeRepo_Imp.dart';
 import 'features/home/presentaion/manager/NewsCubit/NewsCubit.dart';
 import 'features/home/presentaion/manager/Notifications/Work_manager.dart';
 
 void main() async {
+
    WidgetsFlutterBinding.ensureInitialized();
-   // WorkManager_Service().init();
+   // await WorkManager_Service().init();
   final dio = Dio();
   final apiService = Api_Service(dio);
   final homeRepo = HomeRepo_Imp(apiService);

@@ -29,7 +29,7 @@ class NewsCard extends StatelessWidget {
         color: white_color,
         elevation: 16,
         margin:
-        EdgeInsets.symmetric(horizontal: 45, vertical: 15),
+        EdgeInsets.symmetric(horizontal: 45.w, vertical: 15.h),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12)),
         child: Column(
@@ -48,7 +48,7 @@ class NewsCard extends StatelessWidget {
                 child: Text(
                   tittle,
                   style: Styles.textStyle16
-                      .copyWith(fontWeight: FontWeight.bold,fontSize: 18),
+                      .copyWith(fontWeight: FontWeight.bold,fontSize: 18.sp),
                   textAlign: TextAlign.right,
 
                 ),

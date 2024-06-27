@@ -44,16 +44,16 @@ class WorkManager_Service {
   @pragma('vm-entry-point')
   void actionTask() {
     //show notification
-    Workmanager().executeTask((taskName, inputData) {
-      List<String>tittles=getnews_tittle() as List<String>;
-      for(int i=0;i<tittles.length;i++){
-        NotificationService notificationService=NotificationService();
-        notificationService.showNotification("alafdal",tittles[i]);
+    Workmanager().executeTask((taskName, inputData) async {
+      WorkManager_Service service = WorkManager_Service();
+      List<String> titles = await service.getnews_tittle();
+      NotificationService notificationService = NotificationService();
+      for (String title in titles) {
+        notificationService.showNotification("alafdal", title);
       }
-
-
       return Future.value(true);
-    });
+    }
+    );
   }
 
 

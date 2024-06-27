@@ -2,6 +2,7 @@ import 'package:alafdal_app/features/home/data/models/Categories_Model.dart';
 import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/Categories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/Colors.dart';
 import '../../../../../core/utils/Styles.dart';
@@ -19,7 +20,7 @@ class CategoriesBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+          padding:  EdgeInsets.symmetric(horizontal: 10.w,vertical: 5.h),
           child: Align(alignment: Alignment.topRight,
               child: Text(categories_model.categories_tittle,style: Styles.textStyle30.copyWith(color: blue_color),)),
         ),

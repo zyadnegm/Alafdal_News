@@ -35,7 +35,7 @@ class NotificationService {
     NotificationDetails(android: androidPlatformChannelSpecifics);
 
     await flutterLocalNotificationsPlugin.show(
-      0, // يمكن استخدام معرف فريد للإشعار
+      0,
       title,
       body,
       platformChannelSpecifics,

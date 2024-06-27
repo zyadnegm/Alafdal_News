@@ -19,19 +19,19 @@ class NewDetails_Body extends StatelessWidget {
     String imagehost="https://alafdalnews.com/";
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 17,vertical: 5),
+      padding:  EdgeInsets.symmetric(horizontal: 17.w,vertical: 5.h),
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 6,),
+            SizedBox(height: 6.h,),
             Align(
               alignment: Alignment.topLeft,
                 child: InkWell(
                   onTap:() {
                     GoRouter.of(context).pop();
                   },
-                    child: Icon(Icons.arrow_back_ios,color: black_color,size: 33,))),
-            SizedBox(height: 14,),
+                    child: Icon(Icons.arrow_back_ios,color: black_color,size: 33.sp,))),
+            SizedBox(height: 14.h,),
             Align(
               alignment: Alignment.center,
               child: Text(
@@ -41,7 +41,7 @@ class NewDetails_Body extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 4,
+              height: 4.h,
             ),
             Row(
               children: [
@@ -57,14 +57,14 @@ class NewDetails_Body extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 4,
+              height: 4.h,
             ),
             Image.network(imagehost+imageurl),
             SizedBox(
-              height: 4,
+              height: 4.h,
             ),
             SizedBox(
-              height: 8,
+              height: 8.h,
             ),
             Align(
               alignment: Alignment.center,
@@ -83,7 +83,7 @@ class NewDetails_Body extends StatelessWidget {
               //   textAlign: TextAlign.right,
               // ),
             ),
-            SizedBox(height: 12,),
+            SizedBox(height: 12.h,),
           ],
         ),
       ),
