@@ -1,4 +1,9 @@
+import 'package:alafdal_app/core/utils/Styles.dart';
+import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_states.dart';
+import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/SliderCubit.dart';
+import 'package:alafdal_app/features/home/presentaion/views/widget/ImageSlider_Card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,23 +12,57 @@ class ImageSliders extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> images = [
-      Image.asset("assets/images/copy1.jpg"),
-      Image.asset("assets/images/copy2.jpg"),
-      Image.asset("assets/images/copy3.jpg"),
-      Image.asset("assets/images/copy4.jpg"),
-    ];
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: ImageSlideshow(children: images,
-        initialPage: 0,
-        // width: 100.w,
-        indicatorColor: Colors.black,
-        indicatorBackgroundColor: Colors.grey,
-        indicatorBottomPadding: 10,
-        isLoop: true,
-        autoPlayInterval: 3000,
-      ),
+    String host = "https://alafdalnews.com/";
+
+    return BlocBuilder<SliderCubit, News_State>(
+      builder: (context, state) {
+        if (state is Slider_Success) {
+          List<String> image_url = [
+            state.news[0].images ?? "",
+            state.news[1].images ?? "",
+            state.news[2].images ?? "",
+            state.news[3].images ?? "",
+            state.news[4].images ?? "",
+            state.news[5].images ?? "",
+          ];
+          List<Widget> image_slider = [
+            Imageslider_Card(
+                image: host + image_url[0], tittle: state.news[0].title ?? ""),
+            Imageslider_Card(
+                image: host + image_url[1], tittle: state.news[1].title ?? ""),
+            Imageslider_Card(
+                image: host + image_url[2], tittle: state.news[2].title ?? ""),
+            Imageslider_Card(
+                image: host + image_url[4], tittle: state.news[4].title ?? ""),
+            Imageslider_Card(
+                image: host + image_url[5], tittle: state.news[5].title ?? ""),
+            // Imageslider_Card(image: host+image_url[6], tittle: state.news[6].title??""),
+            // Imageslider_Card(image: host+image_url[6], tittle: state.news[6].title??""),
+            // Imageslider_Card(image: host+image_url[7], tittle: state.news[7].title??""),
+          ];
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: ImageSlideshow(
+              children: image_slider,
+              initialPage: 0,
+              width: double.infinity.w,
+              indicatorColor: Colors.black,
+              indicatorBackgroundColor: Colors.grey,
+              indicatorBottomPadding: 1,
+              isLoop: true,
+              autoPlayInterval: 3000,
+            ),
+          );
+        } else if (state is Slider_Faluire) {
+          return Text(
+            state.error,
+            style: Styles.textStyle18.copyWith(color: Colors.white),
+          );
+        }
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      },
     );
   }
 }

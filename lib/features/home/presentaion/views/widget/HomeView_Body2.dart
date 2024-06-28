@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../../core/utils/App_Router.dart';
 import '../../../../../core/utils/Colors.dart';
 import '../../manager/NewsCubit/News_states.dart';
+import 'Image_sliders.dart';
 
 class HomeView_Body2 extends StatelessWidget {
   const HomeView_Body2({super.key});
@@ -22,6 +23,8 @@ class HomeView_Body2 extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        // SizedBox(height: 10.h,),
+        // ImageSliders(),
         Padding(
           padding:  EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
           child: Align(

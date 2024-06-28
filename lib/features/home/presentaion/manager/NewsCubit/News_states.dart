@@ -5,6 +5,8 @@ abstract class News_State{}
 
 
 class HomeNews_Init extends News_State{}
+class HomeNews_Loading extends News_State{}
+
 
 class HomeNews_Success extends News_State{
   final List<ArticalModel>news;
@@ -33,4 +35,14 @@ class Categories_Faluire extends News_State{
 class HomeNews_Faluire extends News_State{
   final String error;
   HomeNews_Faluire(this.error);
+}
+class Slider_Success extends News_State{
+  final List<ArticalModel>news;
+  Slider_Success(this.news);
+}
+
+
+class Slider_Faluire extends News_State{
+  final String error;
+  Slider_Faluire(this.error);
 }

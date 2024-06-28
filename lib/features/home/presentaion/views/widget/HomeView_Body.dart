@@ -2,6 +2,7 @@ import 'package:alafdal_app/core/utils/Colors.dart';
 import 'package:alafdal_app/core/utils/Styles.dart';
 import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/NewsCubit.dart';
 import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_states.dart';
+import 'package:alafdal_app/features/home/presentaion/views/widget/Image_sliders.dart';
 import 'package:alafdal_app/features/home/presentaion/views/widget/NewsCard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,8 @@ class HomeView_Body1 extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        // SizedBox(height: 10.h,),
+        // ImageSliders(),
         Padding(
           padding:  EdgeInsets.symmetric(horizontal: 10.w,vertical: 5.h),
           child: Align(alignment: Alignment.topRight,
@@ -42,12 +45,9 @@ class HomeView_Body1 extends StatelessWidget {
               else if (state is HomeNews_Faluire) {
                 return Center(child: Text(state.error),);
               }
-              else if (state is HomeNews_Init) {
-                return Container(
-                    child: Center(child: CircularProgressIndicator(),));
-              }
+
               else {
-                return Text("data");
+                return Center(child: CircularProgressIndicator(),);
               }
             }
           )
