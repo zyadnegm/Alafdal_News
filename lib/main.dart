@@ -17,8 +17,8 @@ import 'features/home/presentaion/manager/Notifications/Work_manager.dart';
 void main() async {
 
    WidgetsFlutterBinding.ensureInitialized();
-     WorkManager_Service().init();
-     WorkManager_Service().registerMyTask();
+     // WorkManager_Service().init();
+     // WorkManager_Service().registerMyTask();
   final dio = Dio();
   final apiService = Api_Service(dio);
   final homeRepo = HomeRepo_Imp(apiService);

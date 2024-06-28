@@ -39,7 +39,7 @@ class TopSection_Drawer extends StatelessWidget {
             children: [
               InkWell(
                 child: Social_Icon(
-                  image: "assets/images/icons8-whatsapp-48.png",
+                  image: "assets/images/Whatsapp_afdal.png",
                 ),
                 onTap: () {
                   Applunch.launchWhatsApp();
@@ -49,7 +49,7 @@ class TopSection_Drawer extends StatelessWidget {
                 width: 16.w,
               ),
               InkWell(
-                child: Social_Icon(image: "assets/images/icons8-telegram-logo-48.png"),
+                child: Social_Icon(image: "assets/images/Telegram_afdal.png"),
                 onTap: () {
                   Applunch.launchTelegram();
                 },

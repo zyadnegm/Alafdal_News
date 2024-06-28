@@ -26,18 +26,18 @@ class DrawerbottomSection extends StatelessWidget {
                 Applunch.launchFacebook();
               },
               child: Social_Icon(
-                  image: "assets/images/icons8-facebook-logo-48.png")),
+                  image: "assets/images/facebook_afdal.png")),
           InkWell(
               onTap: () {
                 Applunch.launchinstgram();
               },
               child: Social_Icon(
-                  image: "assets/images/icons8-instagram-logo-48.png")),
+                  image: "assets/images/instagram_afdal.png")),
           InkWell(
               onTap: () {
                 Applunch.launchX();
               },
-              child: Social_Icon(image: "assets/images/X icon.png"))
+              child: Social_Icon(image: "assets/images/X_afdal.png"))
         ],
       ),
     );
