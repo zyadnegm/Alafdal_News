@@ -44,7 +44,7 @@ class HomeView_Body3 extends StatelessWidget {
                     return Card(
                       color: white_color,
                       elevation: 16,
-                      margin: EdgeInsets.symmetric(horizontal: 45.w, vertical: 15.h),
+                      margin: EdgeInsets.symmetric(horizontal: 45.w, vertical: 7.h),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -65,7 +65,7 @@ class HomeView_Body3 extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(height: 30.h),
+                          // SizedBox(height: 30.h),
                         ],
                       ),
                     );

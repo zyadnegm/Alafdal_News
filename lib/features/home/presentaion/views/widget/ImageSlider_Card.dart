@@ -13,27 +13,30 @@ class Imageslider_Card extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-        alignment: Alignment.center, children: [
-      Image.network(
-        image,
-        fit: BoxFit.fill,
-        width: double.infinity,
-      ),
-      Align(
-        alignment: Alignment.bottomCenter,
-        child: Container(
-          alignment: Alignment.center,
-          height: 50.h,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Stack(
+          alignment: Alignment.center, children: [
+        Image.network(
+          image,
+          fit: BoxFit.fill,
           width: double.infinity,
-          color: blue_color.withOpacity(0.5),
-          child: Text(
-            tittle,
-            style: Styles.textStyle16.copyWith(color: Colors.white),
-            textAlign: TextAlign.right,
-          ),
         ),
-      )
-    ]);
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            alignment: Alignment.center,
+            height: 50.h,
+            width: double.infinity,
+            color: blue_color.withOpacity(0.5),
+            child: Text(
+              tittle,
+              style: Styles.textStyle16.copyWith(color: Colors.white),
+              textAlign: TextAlign.right,
+            ),
+          ),
+        )
+      ]),
+    );
   }
 }

@@ -29,7 +29,7 @@ class NewsCard extends StatelessWidget {
         color: white_color,
         elevation: 16,
         margin:
-        EdgeInsets.symmetric(horizontal: 45.w, vertical: 15.h),
+        EdgeInsets.symmetric(horizontal: 65.w, vertical: 7.h),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12)),
         child: Column(
@@ -54,9 +54,9 @@ class NewsCard extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              height: 30.h,
-            ),
+            // SizedBox(
+            //   height: 30.h,
+            // ),
           ],
         ),
       ),

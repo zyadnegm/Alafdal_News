@@ -2,7 +2,6 @@ import 'package:alafdal_app/core/utils/Colors.dart';
 import 'package:alafdal_app/core/utils/Styles.dart';
 import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/NewsCubit.dart';
 import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_states.dart';
-import 'package:alafdal_app/features/home/presentaion/views/widget/Image_sliders.dart';
 import 'package:alafdal_app/features/home/presentaion/views/widget/NewsCard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
