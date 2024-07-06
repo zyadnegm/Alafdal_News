@@ -14,14 +14,7 @@ class DrawertitlesListview extends StatelessWidget {
             tittle: "سياسة عربية",
             categories_id: 12,
           ),
-          DrawerTitles(
-            tittle: "سياسة محلية",
-            categories_id: 2,
-          ),
-          DrawerTitles(
-            tittle: "سياسة دولية ",
-            categories_id: 1,
-          ),
+
           DrawerTitles(
             tittle: "خاص الافضل نيوز",
             categories_id: 22,

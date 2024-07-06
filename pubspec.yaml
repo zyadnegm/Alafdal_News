@@ -46,19 +46,27 @@ dependencies:
   firebase_messaging: ^15.0.1
   workmanager: ^0.5.2
   url_launcher: ^6.3.0
-  flutter_native_splash: ^2.4.0
   flutter_launcher_icons: ^0.13.1
   flutter_image_slideshow: ^0.1.6
-
+  flutter_native_splash: ^2.4.0
+  share_plus: ^9.0.0
+#
 flutter_native_splash:
     android: true
     ios: true
-    web: false
-    color: "#42a5f5"
-    image: assets/images/splash_screen.jpg
-    android_gravity: fill
-    ios_content_mode: scaleAspectFill
-    fullscreen: true
+    color: "#1E1E1E"
+
+    android_12:
+      image: assets/images/black_icon.png
+      color: "#1E1E1E"
+#    web: false
+#    color: "#42a5f5"
+#    image: assets/images/splash_screen.jpg
+#    android_gravity: fill
+#    ios_content_mode: scaleAspectFill
+#    fullscreen: true
+
+
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
