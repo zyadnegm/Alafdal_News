@@ -1,3 +1,4 @@
+import 'package:alafdal_app/Core/utils/App_Router.dart';
 import 'package:alafdal_app/core/utils/Styles.dart';
 import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_states.dart';
 import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/SliderCubit.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class ImageSliders extends StatelessWidget {
   const ImageSliders({super.key});
@@ -27,18 +29,17 @@ class ImageSliders extends StatelessWidget {
           ];
           List<Widget> image_slider = [
             Imageslider_Card(
-                image: host + image_url[0], tittle: state.news[0].title ?? ""),
+                image: host + image_url[0], tittle: state.news[0].title ?? "",
+            index: state.news[0],),
             Imageslider_Card(
-                image: host + image_url[1], tittle: state.news[1].title ?? ""),
+                image: host + image_url[1], tittle: state.news[1].title ?? "",index: state.news[1],),
             Imageslider_Card(
-                image: host + image_url[2], tittle: state.news[2].title ?? ""),
+                image: host + image_url[2], tittle: state.news[2].title ?? "",index: state.news[2],),
             Imageslider_Card(
-                image: host + image_url[4], tittle: state.news[4].title ?? ""),
+                image: host + image_url[4], tittle: state.news[4].title ?? "",index: state.news[3],),
             Imageslider_Card(
-                image: host + image_url[5], tittle: state.news[5].title ?? ""),
-            // Imageslider_Card(image: host+image_url[6], tittle: state.news[6].title??""),
-            // Imageslider_Card(image: host+image_url[6], tittle: state.news[6].title??""),
-            // Imageslider_Card(image: host+image_url[7], tittle: state.news[7].title??""),
+                image: host + image_url[5], tittle: state.news[5].title ?? "",index: state.news[4],),
+
           ];
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),

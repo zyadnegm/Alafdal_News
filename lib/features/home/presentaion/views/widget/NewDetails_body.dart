@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
+import 'package:html/parser.dart' show parse;
 import 'package:share_plus/share_plus.dart';
 
 
@@ -28,17 +28,8 @@ class NewDetails_Body extends StatelessWidget {
             SizedBox(
               height: 6.h,
             ),
-            Align(
-                alignment: Alignment.topLeft,
-                child: InkWell(
-                    onTap: () {
-                      GoRouter.of(context).pop();
-                    },
-                    child: Icon(
-                      Icons.arrow_back_ios,
-                      color: black_color,
-                      size: 33.sp,
-                    ))),
+
+            
             SizedBox(
               height: 14.h,
             ),
@@ -46,7 +37,7 @@ class NewDetails_Body extends StatelessWidget {
               alignment: Alignment.center,
               child: Text(
                 news.title ?? "",
-                style: Styles.textStyle25.copyWith(color: blue_color,fontWeight: FontWeight.w800),
+                style: Styles.textStyle25.copyWith(color: blue_color,fontWeight: FontWeight.w900),
                 textAlign: TextAlign.right,
               ),
             ),
@@ -73,6 +64,33 @@ class NewDetails_Body extends StatelessWidget {
             SizedBox(
               height: 4.h,
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text("مشاركة الخبر ",style: Styles.textStyle18,),
+                InkWell(
+                  onTap: () {
+
+                    String descriptionText = parse(news.description ?? "").documentElement!.text;
+                    String contentToShare = '${news.title}\n\n$descriptionText\n\nhttps://alafdalnews.com/$imageurl';
+                    Share.share(contentToShare);
+                  },
+
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Icon(weight: 30,
+                        Icons.share,
+                        color: blue_color,
+                        size: 33.sp,
+                      ),
+                    ),
+                  ),
+                ),
+
+              ],
+            ),
             SizedBox(
               height: 8.h,
             ),
@@ -90,25 +108,7 @@ class NewDetails_Body extends StatelessWidget {
             SizedBox(
               height: 12.h,
             ),
-            InkWell(
-              onTap: () {
-                String contentToShare = '${news.title}\n\n${news.description}\n\nhttps://alafdalnews.com/$imageurl';
-                Share.share(contentToShare);
 
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                    color: blue_color, borderRadius: BorderRadius.circular(14)),
-                width: 300.w,
-                height: 70.h,
-                child: Center(
-                  child: Text(
-                    "مشاركه الخبر",
-                    style: Styles.textStyle25.copyWith(color: Colors.white),
-                  ),
-                ),
-              ),
-            )
           ],
         ),
       ),

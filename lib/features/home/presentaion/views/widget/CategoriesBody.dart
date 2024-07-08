@@ -19,11 +19,7 @@ class CategoriesBody extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 10.w,vertical: 5.h),
-          child: Align(alignment: Alignment.topRight,
-              child: Text(categories_model.categories_tittle,style: Styles.textStyle30.copyWith(color: blue_color),)),
-        ),
+        SizedBox(height: 5.h,),
         Expanded(
             child: BlocBuilder<Categories_Cubit,News_State>(
                 builder: (context, state) {

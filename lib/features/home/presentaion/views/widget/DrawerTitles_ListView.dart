@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../core/utils/Styles.dart';
 import 'DrawerTitles.dart';
 
 class DrawertitlesListview extends StatelessWidget {
@@ -10,10 +12,6 @@ class DrawertitlesListview extends StatelessWidget {
     return Expanded(
       child: ListView(
         children: [
-          DrawerTitles(
-            tittle: "سياسة عربية",
-            categories_id: 12,
-          ),
 
           DrawerTitles(
             tittle: "خاص الافضل نيوز",
@@ -23,9 +21,14 @@ class DrawertitlesListview extends StatelessWidget {
             tittle: "ترجمة صحف اجنبية",
             categories_id: 28,
           ),
+
           DrawerTitles(
             tittle: "مقالات مختارة",
             categories_id: 24,
+          ),
+          DrawerTitles(
+            tittle: "سياسة عربية",
+            categories_id: 12,
           ),
           DrawerTitles(
             tittle: "أمن وقضاء",
@@ -60,3 +63,4 @@ class DrawertitlesListview extends StatelessWidget {
     );
   }
 }
+

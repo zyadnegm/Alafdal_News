@@ -31,8 +31,6 @@ class DrawerTitles extends StatelessWidget {
                 textAlign: TextAlign.right,
               ),
             ),
-            SizedBox(height: 10.h,),
-
           ],
         ),
       ),
