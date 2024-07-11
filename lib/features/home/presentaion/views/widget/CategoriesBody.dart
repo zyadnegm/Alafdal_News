@@ -3,9 +3,6 @@ import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/Categori
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../../core/utils/Colors.dart';
-import '../../../../../core/utils/Styles.dart';
 import '../../manager/NewsCubit/News_states.dart';
 import 'NewsCard.dart';
 

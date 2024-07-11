@@ -20,12 +20,12 @@ class NotificationService {
     flutterLocalNotificationsPlugin.initialize(initializationSettings);
   }
 
-   Future<void> showNotification(String title, String body) async {
+  Future<void> showNotification(String title, int id) async {
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
     AndroidNotificationDetails(
       'your_channel_id',
-      'your_channel_name'
-      'your_channel_description',
+      'your_channel_name',
+      channelDescription: 'your_channel_description',
       importance: Importance.max,
       priority: Priority.high,
       showWhen: false,
@@ -35,9 +35,9 @@ class NotificationService {
     NotificationDetails(android: androidPlatformChannelSpecifics);
 
     await flutterLocalNotificationsPlugin.show(
-      0,
+      id, // Unique ID for each notification
       title,
-      body,
+      null, // No body needed
       platformChannelSpecifics,
       payload: 'item x',
     );

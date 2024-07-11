@@ -5,16 +5,10 @@ import 'package:alafdal_app/features/home/data/repos/homeRepo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-import '../../presentaion/manager/Notifications/Work_manager.dart';
-
-
-
-
 class HomeRepo_Imp implements HomeRepo{
 
   final Api_Service api_service;
-  WorkManager_Service workManager_Service=WorkManager_Service();
-
+  // WorkManager_Service workManager_Service=WorkManager_Service();
 
 
   HomeRepo_Imp(this.api_service);
