@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationService {
@@ -10,7 +12,7 @@ class NotificationService {
 
   void _initializeNotifications() {
     const AndroidInitializationSettings initializationSettingsAndroid =
-    AndroidInitializationSettings('launch_background');
+    AndroidInitializationSettings('notification_icon');
 
     final InitializationSettings initializationSettings =
     InitializationSettings(
@@ -29,6 +31,8 @@ class NotificationService {
       importance: Importance.max,
       priority: Priority.high,
       showWhen: false,
+      // icon: 'notification_icon', // استخدم اسم الملف بدون الامتداد
+      // color: Color(0Xff3916CD)
     );
 
     const NotificationDetails platformChannelSpecifics =
