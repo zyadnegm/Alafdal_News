@@ -1,5 +1,6 @@
 import 'package:alafdal_app/core/utils/Styles.dart';
 import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_Cubit2.dart';
+import 'package:alafdal_app/features/home/presentaion/views/adMob_View.dart';
 import 'package:alafdal_app/features/home/presentaion/views/widget/NewsCard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -63,7 +64,11 @@ class HomeView_Body2 extends StatelessWidget {
               return Text("data");
             }
           },
-        ))
+        )),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: AdmobView(),
+        )
       ],
     );
   }

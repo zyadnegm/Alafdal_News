@@ -31,8 +31,8 @@ class NotificationService {
       importance: Importance.max,
       priority: Priority.high,
       showWhen: false,
-      // icon: 'notification_icon', // استخدم اسم الملف بدون الامتداد
-      // color: Color(0Xff3916CD)
+      icon: 'notification_icon', // استخدم اسم الملف بدون الامتداد
+      color: Color(0Xff3916CD)
     );
 
     const NotificationDetails platformChannelSpecifics =
