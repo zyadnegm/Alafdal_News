@@ -2,6 +2,7 @@ import 'package:alafdal_app/core/utils/Colors.dart';
 import 'package:alafdal_app/core/utils/Styles.dart';
 import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/NewsCubit.dart';
 import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_states.dart';
+import 'package:alafdal_app/features/home/presentaion/manager/admob/adManager.dart';
 import 'package:alafdal_app/features/home/presentaion/views/adMob_View.dart';
 import 'package:alafdal_app/features/home/presentaion/views/widget/NewsCard.dart';
 import 'package:flutter/cupertino.dart';
@@ -54,7 +55,7 @@ class HomeView_Body1 extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
-          child: AdmobView(),
+          child: AdmobView(id: AdManager.adHome,),
         )
 
 

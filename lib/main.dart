@@ -60,7 +60,7 @@ void main() async {
   Workmanager().registerPeriodicTask(
     "1",
     "fetchNewsTask",
-    frequency: Duration(minutes: 15),
+    frequency: Duration(minutes: 20),
   );
 
 

@@ -1,11 +1,12 @@
 
-import 'package:alafdal_app/features/home/presentaion/manager/admob/adManager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class AdmobView extends StatefulWidget {
-  const AdmobView({super.key});
+  const AdmobView({super.key, required this.id});
+  final String id;
+
 
   @override
   State<AdmobView> createState() => _AdmobViewState();
@@ -17,7 +18,7 @@ class _AdmobViewState extends State<AdmobView> {
   // load ad
   void load(){
   bannerAd = BannerAd(
-  adUnitId: AdManager.adHome,
+  adUnitId:widget.id ,
   request: const AdRequest(),
   size: AdSize.banner,
   listener: BannerAdListener(

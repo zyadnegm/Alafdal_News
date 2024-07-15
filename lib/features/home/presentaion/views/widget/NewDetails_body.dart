@@ -1,6 +1,8 @@
 import 'package:alafdal_app/core/utils/Colors.dart';
 import 'package:alafdal_app/core/utils/Styles.dart';
 import 'package:alafdal_app/features/home/data/models/Artical_Model.dart';
+import 'package:alafdal_app/features/home/presentaion/manager/admob/adManager.dart';
+import 'package:alafdal_app/features/home/presentaion/views/adMob_View.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -25,13 +27,13 @@ class NewDetails_Body extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
-              height: 6.h,
-            ),
-
             
             SizedBox(
-              height: 14.h,
+              height: 18.h,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5),
+              child: AdmobView(id: AdManager.adHome2),
             ),
             Align(
               alignment: Alignment.center,
@@ -108,6 +110,10 @@ class NewDetails_Body extends StatelessWidget {
             SizedBox(
               height: 12.h,
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5),
+              child: AdmobView(id: AdManager.adHome3),
+            )
 
           ],
         ),
