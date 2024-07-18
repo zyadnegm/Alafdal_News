@@ -1,5 +1,6 @@
 import 'package:alafdal_app/core/utils/App_Router.dart';
 import 'package:alafdal_app/core/utils/theme.dart';
+import 'package:alafdal_app/features/Splash/Splash_View.dart';
 import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_Cubit2.dart';
 import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_Cubit3.dart';
 import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/SliderCubit.dart';
@@ -7,6 +8,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:workmanager/workmanager.dart';
 import 'core/utils/ApiServer.dart';
@@ -40,7 +42,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   MobileAds.instance.initialize();
 
-
   final dio = Dio();
   final apiService = Api_Service(dio);
   final homeRepo = HomeRepo_Imp(apiService);
@@ -50,12 +51,7 @@ void main() async {
   final newsCubit3 = News_Cubit3(homeRepo);
   final sliderCubit = SliderCubit(homeRepo);
 
-  await Future.wait([
-    newsCubit.fetchNew(),
-    newsCubit2.fetchNew2(),
-    newsCubit3.fetchNew3(),
-    sliderCubit.fetchNew_slider()
-  ]);
+  // تهيئة WorkManager
   Workmanager().initialize(callbackDispatcher);
   Workmanager().registerPeriodicTask(
     "1",
@@ -63,22 +59,30 @@ void main() async {
     frequency: Duration(minutes: 20),
   );
 
-
   runApp(MyApp(
     newsCubit: newsCubit,
     newsCubit2: newsCubit2,
     newsCubit3: newsCubit3,
     sliderCubit: sliderCubit,
   ));
+
+  // تحميل البيانات بشكل غير متزامن
+  await Future.wait([
+    newsCubit.fetchNew(),
+    newsCubit2.fetchNew2(),
+    newsCubit3.fetchNew3(),
+    sliderCubit.fetchNew_slider()
+  ]);
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp(
-      {super.key,
-        required this.newsCubit,
-        required this.newsCubit2,
-        required this.newsCubit3,
-        required this.sliderCubit});
+  const MyApp({
+    super.key,
+    required this.newsCubit,
+    required this.newsCubit2,
+    required this.newsCubit3,
+    required this.sliderCubit
+  });
 
   final News_Cubit newsCubit;
   final News_Cubit2 newsCubit2;
@@ -105,6 +109,23 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: My_theme.LightTheme,
+          builder: (context, child) {
+            return FutureBuilder(
+              future: Future.wait([
+                newsCubit.fetchNew(),
+                newsCubit2.fetchNew2(),
+                newsCubit3.fetchNew3(),
+                sliderCubit.fetchNew_slider()
+              ]),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return child!;
+                } else {
+                  return Splash_View();
+                }
+              },
+            );
+          },
         ),
       ),
     );

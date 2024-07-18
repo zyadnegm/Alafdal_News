@@ -1,4 +1,5 @@
 import 'package:alafdal_app/Core/utils/App_Router.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -24,8 +25,12 @@ class Imageslider_Card extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         child: Stack(
             alignment: Alignment.center, children: [
-          Image.network(
-            image,
+          CachedNetworkImage(
+            imageUrl: image,
+            errorWidget: (context, url, error) => Text(
+              "Connection Error",
+              style: Styles.textStyle21,
+            ),
             fit: BoxFit.fill,
             width: double.infinity,
           ),

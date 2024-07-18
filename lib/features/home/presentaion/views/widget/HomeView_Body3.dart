@@ -14,7 +14,7 @@ class HomeView_Body3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String imagehost = "https://alafdalnews.com/";
+    // String imagehost = "https://alafdalnews.com/";
 
     return Stack(children: [
       CustomScrollView(
@@ -43,7 +43,7 @@ class HomeView_Body3 extends StatelessWidget {
                 return SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
-                      String imageurl = state.news[index].images ?? "";
+                      // String imageurl = state.news[index].images ?? "";
                       return Card(
                         color: white_color,
                         elevation: 16,

@@ -1,4 +1,5 @@
 import 'package:alafdal_app/core/utils/App_Router.dart';
+cimport 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +39,13 @@ class NewsCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(4),
               child: ClipRRect(
-                child: Image.network(imagehost + imageurl),
+                child: CachedNetworkImage(
+                  imageUrl: imagehost+imageurl,
+                  errorWidget: (context, url, error) => Text(
+                    "Connection Error",
+                    style: Styles.textStyle21,
+                  ),
+                ),
               ),
             ),
             Align(
