@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:workmanager/workmanager.dart';
-
 import 'Core/utils/App_Router.dart';
 import 'core/utils/ApiServer.dart';
 import 'core/utils/theme.dart';

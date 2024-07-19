@@ -1,8 +1,8 @@
-import 'package:alafdal_app/core/utils/Colors.dart';
-import 'package:alafdal_app/core/utils/Styles.dart';
-import 'package:alafdal_app/features/home/data/models/Artical_Model.dart';
-import 'package:alafdal_app/features/home/presentaion/manager/admob/adManager.dart';
-import 'package:alafdal_app/features/home/presentaion/views/adMob_View.dart';
+import 'package:AlafdalNews/core/utils/Colors.dart';
+import 'package:AlafdalNews/core/utils/Styles.dart';
+import 'package:AlafdalNews/features/home/data/models/Artical_Model.dart';
+import 'package:AlafdalNews/features/home/presentaion/manager/admob/adManager.dart';
+import 'package:AlafdalNews/features/home/presentaion/views/adMob_View.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

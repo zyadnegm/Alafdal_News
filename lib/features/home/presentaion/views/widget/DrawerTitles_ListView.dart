@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/utils/Styles.dart';
 import 'DrawerTitles.dart';
 
 class DrawertitlesListview extends StatelessWidget {

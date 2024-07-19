@@ -1,14 +1,15 @@
-import 'package:alafdal_app/core/utils/Styles.dart';
-import 'package:alafdal_app/features/home/data/models/Categories_Model.dart';
-import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/Categories.dart';
-import 'package:alafdal_app/features/home/presentaion/views/widget/CategoriesBody.dart';
+
+import 'package:AlafdalNews/features/home/presentaion/views/widget/CategoriesBody.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/ApiServer.dart';
+import '../../../../core/utils/Styles.dart';
+import '../../data/models/Categories_Model.dart';
 import '../../data/repos/homeRepo_Imp.dart';
+import '../manager/NewsCubit/Categories.dart';
 
 class CategoriesView extends StatelessWidget {
   const CategoriesView({super.key, required this.categories_model});

@@ -1,4 +1,4 @@
-import 'package:alafdal_app/core/utils/App_Router.dart';
+import 'package:AlafdalNews/core/utils/App_Router.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:flutter/cupertino.dart';

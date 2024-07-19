@@ -1,5 +1,6 @@
-import 'package:alafdal_app/core/utils/Colors.dart';
 import 'package:flutter/material.dart';
+
+import 'Colors.dart';
 
 
 class My_theme {

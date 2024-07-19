@@ -1,8 +1,9 @@
-import 'package:alafdal_app/features/home/data/models/Artical_Model.dart';
-import 'package:alafdal_app/features/home/presentaion/views/widget/NewDetails_body.dart';
+import 'package:AlafdalNews/features/home/presentaion/views/widget/NewDetails_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../data/models/Artical_Model.dart';
 
 
 

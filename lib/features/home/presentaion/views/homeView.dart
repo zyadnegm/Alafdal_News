@@ -1,12 +1,14 @@
-import 'package:alafdal_app/core/utils/Colors.dart';
-import 'package:alafdal_app/features/home/presentaion/views/widget/Custom%20Drawer.dart';
-import 'package:alafdal_app/features/home/presentaion/views/widget/HomeView_Body.dart';
-import 'package:alafdal_app/features/home/presentaion/views/widget/HomeView_Body2.dart';
-import 'package:alafdal_app/features/home/presentaion/views/widget/HomeView_Body3.dart';
-import 'package:alafdal_app/features/home/presentaion/views/widget/Logo_Icon.dart';
-import 'package:alafdal_app/features/home/presentaion/views/widget/tabBar_text.dart';
+
+import 'package:AlafdalNews/features/home/presentaion/views/widget/Custom%20Drawer.dart';
+import 'package:AlafdalNews/features/home/presentaion/views/widget/HomeView_Body.dart';
+import 'package:AlafdalNews/features/home/presentaion/views/widget/HomeView_Body2.dart';
+import 'package:AlafdalNews/features/home/presentaion/views/widget/HomeView_Body3.dart';
+import 'package:AlafdalNews/features/home/presentaion/views/widget/Logo_Icon.dart';
+import 'package:AlafdalNews/features/home/presentaion/views/widget/tabBar_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../core/utils/Colors.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

@@ -1,5 +1,6 @@
 
-import 'package:alafdal_app/features/home/data/models/Artical_Model.dart';
+
+import '../../../data/models/Artical_Model.dart';
 
 abstract class News_State{}
 

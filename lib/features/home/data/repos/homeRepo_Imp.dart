@@ -1,9 +1,11 @@
-import 'package:alafdal_app/core/errors/Faliure.dart';
-import 'package:alafdal_app/core/utils/ApiServer.dart';
-import 'package:alafdal_app/features/home/data/models/Artical_Model.dart';
-import 'package:alafdal_app/features/home/data/repos/homeRepo.dart';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+
+import '../../../../core/errors/Faliure.dart';
+import '../../../../core/utils/ApiServer.dart';
+import '../models/Artical_Model.dart';
+import 'homeRepo.dart';
 
 class HomeRepo_Imp implements HomeRepo{
 

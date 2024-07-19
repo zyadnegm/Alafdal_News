@@ -1,4 +1,4 @@
-import 'package:alafdal_app/core/utils/AppLunch.dart';
+import 'package:AlafdalNews/core/utils/AppLunch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

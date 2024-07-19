@@ -1,7 +1,7 @@
-import 'package:alafdal_app/core/utils/Styles.dart';
-import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_states.dart';
-import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/SliderCubit.dart';
-import 'package:alafdal_app/features/home/presentaion/views/widget/ImageSlider_Card.dart';
+import 'package:AlafdalNews/core/utils/Styles.dart';
+import 'package:AlafdalNews/features/home/presentaion/manager/NewsCubit/News_states.dart';
+import 'package:AlafdalNews/features/home/presentaion/manager/NewsCubit/SliderCubit.dart';
+import 'package:AlafdalNews/features/home/presentaion/views/widget/ImageSlider_Card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';

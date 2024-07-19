@@ -1,9 +1,10 @@
 
-import 'package:alafdal_app/features/home/presentaion/views/widget/DrawerBottom_Section.dart';
-import 'package:alafdal_app/features/home/presentaion/views/widget/DrawerTitles_ListView.dart';
-import 'package:alafdal_app/features/home/presentaion/views/widget/TopSection_Drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'DrawerBottom_Section.dart';
+import 'DrawerTitles_ListView.dart';
+import 'TopSection_Drawer.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});

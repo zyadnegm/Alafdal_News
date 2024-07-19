@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../../core/utils/AppLunch.dart';
 import '../../../../../core/utils/Colors.dart';
 import 'Social_Icon.dart';

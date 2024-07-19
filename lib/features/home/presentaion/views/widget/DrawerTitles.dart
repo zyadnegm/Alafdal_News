@@ -1,10 +1,11 @@
-import 'package:alafdal_app/core/utils/App_Router.dart';
-import 'package:alafdal_app/features/home/data/models/Categories_Model.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../Core/utils/App_Router.dart';
 import '../../../../../core/utils/Styles.dart';
+import '../../../data/models/Categories_Model.dart';
 
 class DrawerTitles extends StatelessWidget {
   const DrawerTitles({super.key, required this.tittle, required this.categories_id,});

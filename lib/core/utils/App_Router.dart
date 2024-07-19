@@ -1,10 +1,12 @@
-import 'package:alafdal_app/features/Splash/Splash_View.dart';
-import 'package:alafdal_app/features/home/data/models/Artical_Model.dart';
-import 'package:alafdal_app/features/home/data/models/Categories_Model.dart';
-import 'package:alafdal_app/features/home/presentaion/views/CategoriesView.dart';
-import 'package:alafdal_app/features/home/presentaion/views/News_Details.dart';
-import 'package:alafdal_app/features/home/presentaion/views/homeView.dart';
+
 import 'package:go_router/go_router.dart';
+
+import '../../features/Splash/Splash_View.dart';
+import '../../features/home/data/models/Artical_Model.dart';
+import '../../features/home/data/models/Categories_Model.dart';
+import '../../features/home/presentaion/views/CategoriesView.dart';
+import '../../features/home/presentaion/views/News_Details.dart';
+import '../../features/home/presentaion/views/homeView.dart';
 
 abstract class App_Router {
   static const ksplashPath = '/';

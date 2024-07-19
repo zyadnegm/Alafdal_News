@@ -1,15 +1,17 @@
-import 'package:alafdal_app/core/utils/Colors.dart';
-import 'package:alafdal_app/core/utils/Styles.dart';
-import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/NewsCubit.dart';
-import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_states.dart';
-import 'package:alafdal_app/features/home/presentaion/manager/admob/adManager.dart';
-import 'package:alafdal_app/features/home/presentaion/views/adMob_View.dart';
-import 'package:alafdal_app/features/home/presentaion/views/widget/NewsCard.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../../core/utils/Colors.dart';
+import '../../../../../core/utils/Styles.dart';
+import '../../manager/NewsCubit/NewsCubit.dart';
+import '../../manager/NewsCubit/News_states.dart';
+import '../../manager/admob/adManager.dart';
+import '../adMob_View.dart';
+import 'NewsCard.dart';
 
 class HomeView_Body1 extends StatelessWidget {
   const HomeView_Body1({super.key});

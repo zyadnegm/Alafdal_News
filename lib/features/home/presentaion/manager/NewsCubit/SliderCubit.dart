@@ -1,7 +1,7 @@
-import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../data/repos/homeRepo.dart';
+import 'News_states.dart';
 
 class SliderCubit extends Cubit<News_State>{
   SliderCubit(this.homeRepo):super(HomeNews_Init());

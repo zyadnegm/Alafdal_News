@@ -1,4 +1,4 @@
-name: alafdal_app
+name: AlafdalNews
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -53,7 +53,6 @@ dependencies:
   google_mobile_ads: ^5.1.0
   cached_network_image: ^3.3.1
   connectivity_plus: ^6.0.3
-  rename: ^3.0.2
 #
 flutter_native_splash:
     android: true

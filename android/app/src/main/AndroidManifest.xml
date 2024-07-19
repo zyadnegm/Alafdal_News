@@ -6,7 +6,7 @@
 
 
     <application
-        android:label="alafdal_app"
+        android:label="AlafdalNews"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
 

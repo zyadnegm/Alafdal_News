@@ -1,8 +1,8 @@
-import 'package:alafdal_app/core/utils/Styles.dart';
-import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/News_Cubit2.dart';
-import 'package:alafdal_app/features/home/presentaion/manager/admob/adManager.dart';
-import 'package:alafdal_app/features/home/presentaion/views/adMob_View.dart';
-import 'package:alafdal_app/features/home/presentaion/views/widget/NewsCard.dart';
+import 'package:AlafdalNews/core/utils/Styles.dart';
+import 'package:AlafdalNews/features/home/presentaion/manager/NewsCubit/News_Cubit2.dart';
+import 'package:AlafdalNews/features/home/presentaion/manager/admob/adManager.dart';
+import 'package:AlafdalNews/features/home/presentaion/views/adMob_View.dart';
+import 'package:AlafdalNews/features/home/presentaion/views/widget/NewsCard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

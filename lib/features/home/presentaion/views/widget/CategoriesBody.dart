@@ -1,8 +1,9 @@
-import 'package:alafdal_app/features/home/data/models/Categories_Model.dart';
-import 'package:alafdal_app/features/home/presentaion/manager/NewsCubit/Categories.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../data/models/Categories_Model.dart';
+import '../../manager/NewsCubit/Categories.dart';
 import '../../manager/NewsCubit/News_states.dart';
 import 'NewsCard.dart';
 
