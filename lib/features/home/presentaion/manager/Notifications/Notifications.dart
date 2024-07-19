@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter/cupertino.dart';
 
 class NotificationService {
   late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
@@ -10,13 +9,45 @@ class NotificationService {
     _initializeNotifications();
   }
 
+
+
   void _initializeNotifications() {
     const AndroidInitializationSettings initializationSettingsAndroid =
     AndroidInitializationSettings('notification_icon');
 
+    final DarwinInitializationSettings initializationSettingsDarwin =
+    DarwinInitializationSettings(
+      notificationCategories: [
+        DarwinNotificationCategory(
+          'demoCategory',
+          actions: <DarwinNotificationAction>[
+            DarwinNotificationAction.plain('id_1', 'Action 1'),
+            DarwinNotificationAction.plain(
+              'id_2',
+              'Action 2',
+              options: <DarwinNotificationActionOption>{
+                DarwinNotificationActionOption.destructive,
+              },
+            ),
+            DarwinNotificationAction.plain(
+              'id_3',
+              'Action 3',
+              options: <DarwinNotificationActionOption>{
+                DarwinNotificationActionOption.foreground,
+              },
+            ),
+          ],
+          options: <DarwinNotificationCategoryOption>{
+            DarwinNotificationCategoryOption.hiddenPreviewShowTitle,
+          },
+        )
+      ],
+    );
+
     final InitializationSettings initializationSettings =
     InitializationSettings(
       android: initializationSettingsAndroid,
+      iOS: initializationSettingsDarwin,
     );
 
     flutterLocalNotificationsPlugin.initialize(initializationSettings);
@@ -32,7 +63,7 @@ class NotificationService {
       priority: Priority.high,
       showWhen: false,
       icon: 'notification_icon',
-      color: Color(0Xff3916CD)
+      color: Color(0Xff3916CD),
     );
 
     const NotificationDetails platformChannelSpecifics =
@@ -46,4 +77,5 @@ class NotificationService {
       payload: 'item x',
     );
   }
+
 }
