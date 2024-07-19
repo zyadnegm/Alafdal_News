@@ -31,7 +31,7 @@ class NotificationService {
       importance: Importance.max,
       priority: Priority.high,
       showWhen: false,
-      icon: 'notification_icon', // استخدم اسم الملف بدون الامتداد
+      icon: 'notification_icon',
       color: Color(0Xff3916CD)
     );
 

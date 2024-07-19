@@ -10,7 +10,7 @@ class SplashView_Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(
-      Duration(seconds: 3),
+      Duration(seconds: 2),
       () {
         GoRouter.of(context).pushReplacement(App_Router.khomeViewPath);
       },

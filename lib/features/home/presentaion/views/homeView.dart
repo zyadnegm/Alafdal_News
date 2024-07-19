@@ -39,7 +39,7 @@ class HomeView extends StatelessWidget {
       child: SafeArea(
         child: Scaffold(
           endDrawer: CustomDrawer(),
-        
+
           appBar: AppBar(
             iconTheme: IconThemeData(color: Colors.white),
             toolbarHeight: 110.h,
@@ -52,7 +52,7 @@ class HomeView extends StatelessWidget {
               isScrollable: true,
               // padding: EdgeInsets.only(right: 60),
               labelPadding: EdgeInsets.only(right: 50),
-        
+
             ),
           ),
           body: TabBarView(
@@ -63,5 +63,4 @@ class HomeView extends StatelessWidget {
     );
   }
 }
-
 

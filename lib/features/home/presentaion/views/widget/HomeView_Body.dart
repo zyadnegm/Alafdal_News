@@ -29,29 +29,29 @@ class HomeView_Body1 extends StatelessWidget {
               child: Text("سياسة دولية",style: Styles.textStyle30.copyWith(color: blue_color),)),
         ),
         Expanded(
-          child: BlocBuilder<News_Cubit,News_State>(
-            builder: (context, state) {
-              if (state is HomeNews_Success) {
-                return ListView.builder(itemCount: state.news.length,
-                    itemBuilder:
-                        (context, index) {
-                      String imageurl = state.news[index].images ?? "";
-                      return NewsCard(imageurl: imageurl,
-                          tittle: state.news[index].title ?? "",
-                      index: state.news[index],);
-                    }
+            child: BlocBuilder<News_Cubit,News_State>(
+                builder: (context, state) {
+                  if (state is HomeNews_Success) {
+                    return ListView.builder(itemCount: state.news.length,
+                        itemBuilder:
+                            (context, index) {
+                          String imageurl = state.news[index].images ?? "";
+                          return NewsCard(imageurl: imageurl,
+                            tittle: state.news[index].title ?? "",
+                            index: state.news[index],);
+                        }
 
-                );
-              }
-              else if (state is HomeNews_Faluire) {
-                return Center(child: Text(state.error),);
-              }
+                    );
+                  }
+                  else if (state is HomeNews_Faluire) {
+                    return Center(child: Text(state.error),);
+                  }
 
-              else {
-                return Center(child: CircularProgressIndicator(),);
-              }
-            }
-          )
+                  else {
+                    return Center(child: CircularProgressIndicator(),);
+                  }
+                }
+            )
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
