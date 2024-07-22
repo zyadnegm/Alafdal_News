@@ -1,12 +1,11 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class AdmobView extends StatefulWidget {
   const AdmobView({super.key, required this.id});
-  final String id;
 
+  final String id;
 
   @override
   State<AdmobView> createState() => _AdmobViewState();
@@ -15,38 +14,48 @@ class AdmobView extends StatefulWidget {
 class _AdmobViewState extends State<AdmobView> {
   BannerAd? bannerAd;
   bool isLoaded = false;
+
   // load ad
-  void load(){
-  bannerAd = BannerAd(
-  adUnitId:widget.id ,
-  request: const AdRequest(),
-  size: AdSize.banner,
-  listener: BannerAdListener(
-  onAdLoaded: (ad) {
-    print("Yessssssssssssssssssssssssssssss");
-    setState(() {
-      isLoaded=true;
+  void load() {
+    bannerAd = BannerAd(
+      adUnitId: widget.id,
+      request: const AdRequest(keywords: <String>[
+        "News",
+        "football",
+        "children",
+        "sports",
+        "video games",
+        "technology",
+        "phones",
+        "foods",
+        "tourism",
+        "supplements",
+        "shoes"
+      ], nonPersonalizedAds: true),
+      size: AdSize.banner,
+      listener: BannerAdListener(
+        onAdLoaded: (ad) {
+          setState(() {
+            isLoaded = true;
+          });
+        },
+        onAdFailedToLoad: (ad, error) {
+          ad.dispose();
+        },
+      ),
+    )..load();
 
-    });
+    // Called when an ad is successfully received.
+  }
 
-  },
-  onAdFailedToLoad: (ad, error) {
-    ad.dispose();
-    print("Nooooooooooooooooooooooo");
-  },
-  ),
-  )..load();
-
-  // Called when an ad is successfully received.
-
-}
-@override
+  @override
   void initState() {
     load();
   }
+
   @override
   void dispose() {
-    if(isLoaded){
+    if (isLoaded) {
       bannerAd!.dispose();
     }
     super.dispose();
@@ -57,11 +66,13 @@ class _AdmobViewState extends State<AdmobView> {
     return Align(
       alignment: Alignment.bottomCenter,
       child: SafeArea(
-        child: isLoaded ?SizedBox(
-          width: bannerAd!.size.width.toDouble().w,
-          height: bannerAd!.size.height.toDouble().h,
-          child: AdWidget(ad: bannerAd!),
-        ):SizedBox(),
+        child: isLoaded
+            ? SizedBox(
+                width: bannerAd!.size.width.toDouble().w,
+                height: bannerAd!.size.height.toDouble().h,
+                child: AdWidget(ad: bannerAd!),
+              )
+            : SizedBox(),
       ),
     );
   }

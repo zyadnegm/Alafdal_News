@@ -41,6 +41,7 @@ void callbackDispatcher() {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   MobileAds.instance.initialize();
+  NotificationService().notificationRequest();
 
   final dio = Dio();
   final apiService = Api_Service(dio);

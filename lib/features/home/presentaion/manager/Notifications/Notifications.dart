@@ -1,5 +1,5 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter/cupertino.dart';
 
 class NotificationService {
   late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
@@ -9,9 +9,7 @@ class NotificationService {
     _initializeNotifications();
   }
 
-
-
-  void _initializeNotifications() {
+  void _initializeNotifications() async {
     const AndroidInitializationSettings initializationSettingsAndroid =
     AndroidInitializationSettings('notification_icon');
 
@@ -50,7 +48,21 @@ class NotificationService {
       iOS: initializationSettingsDarwin,
     );
 
-    flutterLocalNotificationsPlugin.initialize(initializationSettings);
+    await flutterLocalNotificationsPlugin.initialize(initializationSettings);
+
+    // // طلب الإذن على نظام iOS
+    // final bool? result = await flutterLocalNotificationsPlugin
+    //     .resolvePlatformSpecificImplementation<
+    //     IOSFlutterLocalNotificationsPlugin>()
+    //     ?.requestPermissions(
+    //   alert: true,
+    //   badge: true,
+    //   sound: true,
+    // );
+    //
+    // if (result == false) {
+    //   print("Notification permissions not granted on iOS.");
+    // }
   }
 
   Future<void> showNotification(String title, int id) async {
@@ -77,5 +89,16 @@ class NotificationService {
       payload: 'item x',
     );
   }
+  void notificationRequest(){
+    FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
+    // طلب الإذن على نظام Android (لا يوجد إذن خاص للإشعارات في Android، لكن يمكنك التحقق من إعدادات التطبيق).
+    flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()!.requestNotificationsPermission();
+
+    // طلب الإذن على نظام iOS
+    flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<IOSFlutterLocalNotificationsPlugin>()?.requestPermissions(
+        alert: true,
+        badge: true,
+        sound: true);
+  }
 }
