@@ -50,22 +50,23 @@ class NotificationService {
 
     await flutterLocalNotificationsPlugin.initialize(initializationSettings);
 
-    // // طلب الإذن على نظام iOS
-    // final bool? result = await flutterLocalNotificationsPlugin
-    //     .resolvePlatformSpecificImplementation<
-    //     IOSFlutterLocalNotificationsPlugin>()
-    //     ?.requestPermissions(
-    //   alert: true,
-    //   badge: true,
-    //   sound: true,
-    // );
-    //
-    // if (result == false) {
-    //   print("Notification permissions not granted on iOS.");
-    // }
+    // طلب الإذن على نظام iOS
+    final bool? result = await flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<
+        IOSFlutterLocalNotificationsPlugin>()
+        ?.requestPermissions(
+      alert: true,
+      badge: true,
+      sound: true,
+    );
+
+    if (result == false) {
+      print("Notification permissions not granted on iOS.");
+    }
   }
 
   Future<void> showNotification(String title, int id) async {
+    // إعدادات الإشعارات لنظام Android
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
     AndroidNotificationDetails(
       'your_channel_id',
@@ -78,15 +79,26 @@ class NotificationService {
       color: Color(0Xff3916CD),
     );
 
-    const NotificationDetails platformChannelSpecifics =
-    NotificationDetails(android: androidPlatformChannelSpecifics);
+    // إعدادات الإشعارات لنظام iOS
+    const DarwinNotificationDetails iosPlatformChannelSpecifics =
+    DarwinNotificationDetails(
+      threadIdentifier: 'your_thread_id', // معرف سلسلة الإشعارات
+      categoryIdentifier: 'demoCategory', // الفئة المحددة في التهيئة
+    );
 
+    // دمج إعدادات Android و iOS
+    const NotificationDetails platformChannelSpecifics = NotificationDetails(
+      android: androidPlatformChannelSpecifics,
+      iOS: iosPlatformChannelSpecifics,
+    );
+
+    // عرض الإشعار
     await flutterLocalNotificationsPlugin.show(
-      id, // Unique ID for each notification
-      title,
-      null, // No body needed
+      id, // معرف فريد لكل إشعار
+      title, // عنوان الإشعار
+      null, // لا يوجد نص للإشعار
       platformChannelSpecifics,
-      payload: 'item x',
+      payload: 'item x', // البيانات الإضافية
     );
   }
   void notificationRequest(){
