@@ -59,7 +59,7 @@ class ImageSliders extends StatelessWidget {
           );
         }
         return Center(
-          child: CircularProgressIndicator(),
+          child: Container(color: Colors.white,),
         );
       },
     );

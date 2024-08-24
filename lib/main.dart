@@ -120,23 +120,23 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: My_theme.LightTheme,
-          builder: (context, child) {
-            return FutureBuilder(
-              future: Future.wait([
-                newsCubit.fetchNew(),
-                newsCubit2.fetchNew2(),
-                newsCubit3.fetchNew3(),
-                sliderCubit.fetchNew_slider(),
-              ]),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.done) {
-                  return child!;
-                } else {
-                  return Splash_View();
-                }
-              },
-            );
-          },
+          // builder: (context, child) {
+          //   return FutureBuilder(
+          //     future: Future.wait([
+          //       newsCubit.fetchNew(),
+          //       newsCubit2.fetchNew2(),
+          //       newsCubit3.fetchNew3(),
+          //       sliderCubit.fetchNew_slider(),
+          //     ]),
+          //     builder: (context, snapshot) {
+          //       if (snapshot.connectionState == ConnectionState.done) {
+          //         return child!;
+          //       } else {
+          //         return Splash_View();
+          //       }
+          //     },
+          //   );
+          // },
         ),
       ),
     );
