@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'dart:ui';
+
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationService {
@@ -9,64 +10,19 @@ class NotificationService {
     _initializeNotifications();
   }
 
-  void _initializeNotifications() async {
+  void _initializeNotifications() {
     const AndroidInitializationSettings initializationSettingsAndroid =
     AndroidInitializationSettings('notification_icon');
-
-    final DarwinInitializationSettings initializationSettingsDarwin =
-    DarwinInitializationSettings(
-      notificationCategories: [
-        DarwinNotificationCategory(
-          'demoCategory',
-          actions: <DarwinNotificationAction>[
-            DarwinNotificationAction.plain('id_1', 'Action 1'),
-            DarwinNotificationAction.plain(
-              'id_2',
-              'Action 2',
-              options: <DarwinNotificationActionOption>{
-                DarwinNotificationActionOption.destructive,
-              },
-            ),
-            DarwinNotificationAction.plain(
-              'id_3',
-              'Action 3',
-              options: <DarwinNotificationActionOption>{
-                DarwinNotificationActionOption.foreground,
-              },
-            ),
-          ],
-          options: <DarwinNotificationCategoryOption>{
-            DarwinNotificationCategoryOption.hiddenPreviewShowTitle,
-          },
-        )
-      ],
-    );
 
     final InitializationSettings initializationSettings =
     InitializationSettings(
       android: initializationSettingsAndroid,
-      iOS: initializationSettingsDarwin,
     );
 
-    await flutterLocalNotificationsPlugin.initialize(initializationSettings);
-
-    // طلب الإذن على نظام iOS
-    final bool? result = await flutterLocalNotificationsPlugin
-        .resolvePlatformSpecificImplementation<
-        IOSFlutterLocalNotificationsPlugin>()
-        ?.requestPermissions(
-      alert: true,
-      badge: true,
-      sound: true,
-    );
-
-    if (result == false) {
-      print("Notification permissions not granted on iOS.");
-    }
+    flutterLocalNotificationsPlugin.initialize(initializationSettings);
   }
 
   Future<void> showNotification(String title, int id) async {
-    // إعدادات الإشعارات لنظام Android
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
     AndroidNotificationDetails(
       'your_channel_id',
@@ -75,30 +31,19 @@ class NotificationService {
       importance: Importance.max,
       priority: Priority.high,
       showWhen: false,
-      icon: 'notification_icon',
-      color: Color(0Xff3916CD),
+      // icon: 'notification_icon', // استخدم اسم الملف بدون الامتداد
+      // color: Color(0Xff3916CD)
     );
 
-    // إعدادات الإشعارات لنظام iOS
-    const DarwinNotificationDetails iosPlatformChannelSpecifics =
-    DarwinNotificationDetails(
-      threadIdentifier: 'your_thread_id', // معرف سلسلة الإشعارات
-      categoryIdentifier: 'demoCategory', // الفئة المحددة في التهيئة
-    );
+    const NotificationDetails platformChannelSpecifics =
+    NotificationDetails(android: androidPlatformChannelSpecifics);
 
-    // دمج إعدادات Android و iOS
-    const NotificationDetails platformChannelSpecifics = NotificationDetails(
-      android: androidPlatformChannelSpecifics,
-      iOS: iosPlatformChannelSpecifics,
-    );
-
-    // عرض الإشعار
     await flutterLocalNotificationsPlugin.show(
-      id, // معرف فريد لكل إشعار
-      title, // عنوان الإشعار
-      null, // لا يوجد نص للإشعار
+      id, // Unique ID for each notification
+      title,
+      null, // No body needed
       platformChannelSpecifics,
-      payload: 'item x', // البيانات الإضافية
+      payload: 'item x',
     );
   }
   void notificationRequest(){
@@ -113,4 +58,5 @@ class NotificationService {
         badge: true,
         sound: true);
   }
+
 }

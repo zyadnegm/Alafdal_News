@@ -7,9 +7,28 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:742410870599:android:1833f841b4f3261e7c3662",
+        "mobilesdk_app_id": "1:742410870599:android:25d1a414795e7e547c3662",
         "android_client_info": {
           "package_name": "com.Alafdal.alafdal_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATnR-EvuKEHsS6uLCGZYZvCAOokMqgZwE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:742410870599:android:1833f841b4f3261e7c3662",
+        "android_client_info": {
+          "package_name": "com.example.alafdal_app"
         }
       },
       "oauth_client": [],
