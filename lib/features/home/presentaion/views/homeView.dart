@@ -5,14 +5,36 @@ import 'package:AlafdalNews/features/home/presentaion/views/widget/HomeView_Body
 import 'package:AlafdalNews/features/home/presentaion/views/widget/HomeView_Body3.dart';
 import 'package:AlafdalNews/features/home/presentaion/views/widget/Logo_Icon.dart';
 import 'package:AlafdalNews/features/home/presentaion/views/widget/tabBar_text.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../Core/utils/App_Router.dart';
 import '../../../../core/utils/Colors.dart';
+import '../../data/models/NotificationModel.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message){
+      var model = NotificationModel(
+        tittle: message.notification?.body ?? "",
+        day: message.sentTime?.day ?? 0,
+        hour: message.sentTime?.hour ?? 0,
+      );
+      GoRouter.of(context).push(App_Router.knotificationDetails,extra: model);
+
+    });
+  }
   @override
   Widget build(BuildContext context) {
     List<Tab> tabs = [
@@ -65,4 +87,3 @@ class HomeView extends StatelessWidget {
     );
   }
 }
-
