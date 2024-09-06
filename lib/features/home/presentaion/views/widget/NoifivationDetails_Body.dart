@@ -10,8 +10,8 @@ import '../../manager/admob/adManager.dart';
 import '../adMob_View.dart';
 
 class NoifivationDetails_Body extends StatelessWidget {
-  const NoifivationDetails_Body({super.key, required this.notificationModel});
-  final NotificationModel notificationModel;
+  const NoifivationDetails_Body({super.key, required this.tittle});
+  final String tittle;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class NoifivationDetails_Body extends StatelessWidget {
             Align(
               alignment: Alignment.center,
               child: Text(
-               notificationModel.tittle ??"",
+               tittle,
                 style: Styles.textStyle25
                     .copyWith(color: blue_color, fontWeight: FontWeight.w900),
                 textAlign: TextAlign.right,
@@ -38,19 +38,6 @@ class NoifivationDetails_Body extends StatelessWidget {
             ),
             SizedBox(
               height: 4.h,
-            ),
-            Row(
-              children: [
-                Text(
-                  "${notificationModel.year}-${notificationModel.mounth}-${notificationModel.day}",
-                  style: Styles.textStyle16.copyWith(color: gray_color),
-                ),
-                Spacer(),
-                Text(
-                  "${notificationModel.hour}:${notificationModel.minute}",
-                  style: Styles.textStyle16.copyWith(color: gray_color),
-                )
-              ],
             ),
             SizedBox(
               height: 4.h,
@@ -76,7 +63,7 @@ class NoifivationDetails_Body extends StatelessWidget {
                   onTap: () {
 
                     String contentToShare =
-                        '${notificationModel.tittle}\n\nhttps://alafdalnews.com/uploads/news/p5.png';
+                        '${tittle}\n\nhttps://alafdalnews.com/uploads/news/p5.png';
                     Share.share(contentToShare);
                   },
                   child: Align(

@@ -1,12 +1,11 @@
-import 'package:AlafdalNews/features/home/data/models/NotificationModel.dart';
 import 'package:AlafdalNews/features/home/presentaion/views/widget/NoifivationDetails_Body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class NoifivationDetails extends StatelessWidget {
-  const NoifivationDetails({super.key, required this.notificationModel});
-  final NotificationModel notificationModel;
+  const NoifivationDetails({super.key, required this.tittle});
+  final String tittle;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +28,7 @@ class NoifivationDetails extends StatelessWidget {
 
           ),
           body: NoifivationDetails_Body(
-            notificationModel: notificationModel,
+            tittle: tittle,
 
           ),
         ));

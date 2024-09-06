@@ -1,6 +1,4 @@
 
-import 'package:AlafdalNews/features/home/data/models/NotificationModel.dart';
-import 'package:AlafdalNews/features/home/presentaion/views/test.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/Splash/Splash_View.dart';
@@ -17,7 +15,6 @@ abstract class App_Router {
   static const kNewsDetailsPath = '/NewsDetail';
   static const kCategoriesView = '/categori';
   static const knotificationDetails = '/notification';
-  static const kTest = '/test';
 
 
 
@@ -54,16 +51,10 @@ abstract class App_Router {
       path: knotificationDetails,
       builder: (context, state) =>
       NoifivationDetails(
-        notificationModel: state.extra as NotificationModel,
-
-
+        tittle: state.extra as String,
       )
     ),
-    GoRoute(
-      path: kTest,
-      builder: (context, state) =>
-          TestScreen(),
-    ),
+
 
 
 

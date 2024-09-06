@@ -9,10 +9,8 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-
 import '../../../../Core/utils/App_Router.dart';
 import '../../../../core/utils/Colors.dart';
-import '../../data/models/NotificationModel.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -29,27 +27,16 @@ class _HomeViewState extends State<HomeView> {
       await FirebaseMessaging.instance.getInitialMessage();
 
       if (initialMessage != null) {
-        var model =NotificationModel(
-            tittle: initialMessage.notification?.body ?? "",
-            day: initialMessage.sentTime?.day ?? 0,
-            hour: initialMessage.sentTime?.hour??0,
-            minute: initialMessage.sentTime?.minute??0,
-            year: initialMessage.sentTime?.year??0,
-            mounth: initialMessage.sentTime?.month??0);
-        GoRouter.of(context).push(App_Router.knotificationDetails,extra: model);
+        String tittle=initialMessage.notification?.body??"";
+
+        GoRouter.of(context).push(App_Router.knotificationDetails,extra: tittle);
 
       }
     }
     setupInteractedMessage();
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message){
-      var model = NotificationModel(
-          tittle: message.notification?.body??"",
-          day: message.sentTime?.day??0,
-          hour: message.sentTime?.hour??0,
-          minute: message.sentTime?.minute??0,
-          year: message.sentTime?.year??0,
-          mounth: message.sentTime?.month??0);
-      GoRouter.of(context).push(App_Router.knotificationDetails,extra: model);
+      String tittle=message.notification?.body??"";
+      GoRouter.of(context).push(App_Router.knotificationDetails,extra: tittle);
 
     });
   }
