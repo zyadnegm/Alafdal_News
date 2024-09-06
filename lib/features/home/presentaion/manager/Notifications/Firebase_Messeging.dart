@@ -15,6 +15,7 @@ class Firebase_Messeging{
   Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
     await Firebase.initializeApp();
 
+
   }
 
 

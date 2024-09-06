@@ -24,13 +24,31 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
-    // TODO: implement initState
+    Future<void> setupInteractedMessage() async {
+      RemoteMessage? initialMessage =
+      await FirebaseMessaging.instance.getInitialMessage();
+
+      if (initialMessage != null) {
+        var model =NotificationModel(
+            tittle: initialMessage.notification?.body ?? "",
+            day: initialMessage.sentTime?.day ?? 0,
+            hour: initialMessage.sentTime?.hour??0,
+            minute: initialMessage.sentTime?.minute??0,
+            year: initialMessage.sentTime?.year??0,
+            mounth: initialMessage.sentTime?.month??0);
+        GoRouter.of(context).push(App_Router.knotificationDetails,extra: model);
+
+      }
+    }
+    setupInteractedMessage();
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message){
       var model = NotificationModel(
-        tittle: message.notification?.body ?? "",
-        day: message.sentTime?.day ?? 0,
-        hour: message.sentTime?.hour ?? 0,
-      );
+          tittle: message.notification?.body??"",
+          day: message.sentTime?.day??0,
+          hour: message.sentTime?.hour??0,
+          minute: message.sentTime?.minute??0,
+          year: message.sentTime?.year??0,
+          mounth: message.sentTime?.month??0);
       GoRouter.of(context).push(App_Router.knotificationDetails,extra: model);
 
     });

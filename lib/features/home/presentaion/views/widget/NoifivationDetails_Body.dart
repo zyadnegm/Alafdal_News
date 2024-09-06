@@ -42,12 +42,12 @@ class NoifivationDetails_Body extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  "${notificationModel.day}",
+                  "${notificationModel.year}-${notificationModel.mounth}-${notificationModel.day}",
                   style: Styles.textStyle16.copyWith(color: gray_color),
                 ),
                 Spacer(),
                 Text(
-                  "${notificationModel.hour}",
+                  "${notificationModel.hour}:${notificationModel.minute}",
                   style: Styles.textStyle16.copyWith(color: gray_color),
                 )
               ],
