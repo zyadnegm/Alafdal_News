@@ -29,7 +29,7 @@ abstract class App_Router {
     GoRoute(
       path: ksplashPath,
       builder: (context, state) =>
-          Splash_View(),
+          SplashView(),
     ),
 
 
