@@ -29,6 +29,7 @@
     </receiver>
     <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ActionBroadcastReceiver"/>
     <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-8351171479597349~9245051467"/>
+
   </application>
   <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility?hl=en and

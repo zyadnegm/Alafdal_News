@@ -1,13 +1,19 @@
 
+import 'package:AlafdalNews/features/home/data/models/NotificationModel.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/Splash/Splash_View.dart';
 import '../../features/home/data/models/Artical_Model.dart';
 import '../../features/home/data/models/Categories_Model.dart';
+import '../../features/home/data/repos/homeRepo_Imp.dart';
+import '../../features/home/presentaion/manager/NewsCubit/Notification Cubit.dart';
 import '../../features/home/presentaion/views/CategoriesView.dart';
 import '../../features/home/presentaion/views/News_Details.dart';
 import '../../features/home/presentaion/views/Noifivation_Details.dart';
 import '../../features/home/presentaion/views/homeView.dart';
+import 'ApiServer.dart';
 
 abstract class App_Router {
   static const ksplashPath = '/';
@@ -36,7 +42,7 @@ abstract class App_Router {
     GoRoute(
       path: kNewsDetailsPath,
       builder: (context, state) =>  News_Details(
-        news: state.extra as ArticalModel
+        news: state.extra as ArticalModel,
       ),
     ),
     GoRoute(
@@ -51,7 +57,7 @@ abstract class App_Router {
       path: knotificationDetails,
       builder: (context, state) =>
       NoifivationDetails(
-        tittle: state.extra as String,
+        notificationModel: state.extra as NotificationModel,
       )
     ),
 

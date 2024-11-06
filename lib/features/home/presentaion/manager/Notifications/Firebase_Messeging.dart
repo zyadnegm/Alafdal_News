@@ -11,9 +11,12 @@ class Firebase_Messeging{
     print("Token : $token");
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
     messaging.subscribeToTopic("all");
+    
+
   }
   Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
     await Firebase.initializeApp();
+    print("+++++++++++${message.data}====================");
 
 
   }

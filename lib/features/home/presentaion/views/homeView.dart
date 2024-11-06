@@ -1,4 +1,4 @@
-
+import 'package:AlafdalNews/features/home/data/models/NotificationModel.dart';
 import 'package:AlafdalNews/features/home/presentaion/views/widget/Custom%20Drawer.dart';
 import 'package:AlafdalNews/features/home/presentaion/views/widget/HomeView_Body.dart';
 import 'package:AlafdalNews/features/home/presentaion/views/widget/HomeView_Body2.dart';
@@ -27,19 +27,28 @@ class _HomeViewState extends State<HomeView> {
       await FirebaseMessaging.instance.getInitialMessage();
 
       if (initialMessage != null) {
-        String tittle=initialMessage.notification?.body??"";
+        var notificationModel = NotificationModel(
+            tittle: initialMessage.notification?.body ?? "", related_id: initialMessage.data["related_id"]);
 
-        GoRouter.of(context).push(App_Router.knotificationDetails,extra: tittle);
-
+        GoRouter.of(context).push(
+            App_Router.knotificationDetails, extra: notificationModel);
       }
     }
     setupInteractedMessage();
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message){
-      String tittle=message.notification?.body??"";
-      GoRouter.of(context).push(App_Router.knotificationDetails,extra: tittle);
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+      print("+++++++++++${message.data}====================");
+      print("+++++++++++${message.notification!.body}====================");
+      print("+++++++++++Number news: ${message.data["related_id"]}====================");
 
+
+
+      var notificationModel = NotificationModel(
+          tittle: message.notification?.body ?? "", related_id: message.data["related_id"]);
+      // String tittle=message.notification?.body??"";
+      GoRouter.of(context).push(App_Router.knotificationDetails, extra: notificationModel);
     });
   }
+
   @override
   Widget build(BuildContext context) {
     List<Tab> tabs = [

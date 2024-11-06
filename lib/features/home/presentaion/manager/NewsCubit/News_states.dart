@@ -47,3 +47,12 @@ class Slider_Faluire extends News_State{
   final String error;
   Slider_Faluire(this.error);
 }
+
+class Notification_Success extends News_State{
+  final Map<String,dynamic>news;
+  Notification_Success(this.news);
+}
+class Notification_Faluire extends News_State{
+  final String error;
+  Notification_Faluire(this.error);
+}
