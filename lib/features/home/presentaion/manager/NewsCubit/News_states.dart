@@ -49,7 +49,7 @@ class Slider_Faluire extends News_State{
 }
 
 class Notification_Success extends News_State{
-  final Map<String,dynamic>news;
+  final   ArticalModel news;
   Notification_Success(this.news);
 }
 class Notification_Faluire extends News_State{

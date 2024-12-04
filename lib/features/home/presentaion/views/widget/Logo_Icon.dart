@@ -10,14 +10,14 @@ class Logo_Icon extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Container(
         alignment: Alignment.centerRight,
-        height: 110.h,
-        width: 200.w,
+        height: 100.h,
+        width: 160.w,
         child: InkWell(
           onTap: () {
             Applunch.launchWeb();
           },
           child: Image.asset(
-            "assets/images/alafdal-news-logo-.png",
+            "assets/images/logo-afdal-news-no-padding.png",
             fit: BoxFit.fill,
           ),
         ));

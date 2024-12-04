@@ -9,9 +9,9 @@ class Notification_Cubit extends Cubit<News_State>{
   static Notification_Cubit get(context)=>BlocProvider.of(context);
 
 
-  Future<void>fetchRelated_New(String related_id)async {
+  Future<void>fetchRelated_New(int related_id)async {
     emit(HomeNews_Loading());
-    var result= await homeRepo.fetchNotificatioun_news(id: 20,related_id: related_id);
+    var result= await homeRepo.fetchNotificatioun_news(related_id: related_id);
     result.fold((faluire) {
       emit(Notification_Faluire(faluire.error_message));
       print(faluire.error_message);

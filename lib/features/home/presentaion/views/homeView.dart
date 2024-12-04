@@ -28,7 +28,7 @@ class _HomeViewState extends State<HomeView> {
 
       if (initialMessage != null) {
         var notificationModel = NotificationModel(
-            tittle: initialMessage.notification?.body ?? "", related_id: initialMessage.data["related_id"]);
+            tittle: initialMessage.notification?.body ?? "", related_id: int.parse(initialMessage.data["related_id"]));
 
         GoRouter.of(context).push(
             App_Router.knotificationDetails, extra: notificationModel);
@@ -43,7 +43,7 @@ class _HomeViewState extends State<HomeView> {
 
 
       var notificationModel = NotificationModel(
-          tittle: message.notification?.body ?? "", related_id: message.data["related_id"]);
+          tittle: message.notification?.body ?? "", related_id: int.parse(message.data["related_id"]));
       // String tittle=message.notification?.body??"";
       GoRouter.of(context).push(App_Router.knotificationDetails, extra: notificationModel);
     });
@@ -80,9 +80,9 @@ class _HomeViewState extends State<HomeView> {
 
           appBar: AppBar(
             iconTheme: IconThemeData(color: Colors.white),
-            toolbarHeight: 110.h,
+            toolbarHeight: 40.h,
             leading: Logo_Icon(),
-            leadingWidth: 120.w,
+            leadingWidth: 70.w,
             bottom: TabBar(
               tabs: tabs,
               indicatorColor: red_color,

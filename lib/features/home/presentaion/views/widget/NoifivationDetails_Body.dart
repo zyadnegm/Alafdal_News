@@ -52,7 +52,7 @@ class NoifivationDetails_Body extends StatelessWidget {
               builder: (context, state) {
                 if(state is Notification_Success){
 
-                  String imageurl= state.news["images"];
+                  String imageurl= state.news.images??"";
                   return Column(
                     children: [
                       CachedNetworkImage(
@@ -102,7 +102,7 @@ class NoifivationDetails_Body extends StatelessWidget {
                       ),
                       Align(
                         alignment: Alignment.center,
-                        child: Html(data: state.news["description"] ?? "", style: {
+                        child: Html(data: state.news.description ?? "", style: {
                           "p": Style(
                             textAlign: TextAlign.right,
                             fontSize: FontSize(21.sp),

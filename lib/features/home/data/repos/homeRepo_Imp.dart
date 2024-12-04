@@ -36,19 +36,17 @@ class HomeRepo_Imp implements HomeRepo {
   }
 
   @override
-  Future<Either<Faliuer, Map<String, dynamic>>> fetchNotificatioun_news({required int id, required String related_id}) async {
+  Future<Either<Faliuer, ArticalModel>> fetchNotificatioun_news({ required int related_id}) async {
     try {
-      List<dynamic> data = await api_service.get(id) as List<dynamic>;
+      var data = await api_service.getnotificaion(related_id);
 
-      // Search for the news item that matches the relatedId
-      for (var item in data) {
-        if (item['id'] == related_id) {
-          return right(item); // Return the first matching news item
-        }
-      }
+      var firstItem = (data as List).first as Map<String, dynamic>;
 
-      // If no matching news item is found, return a Failure
-      return left(ServerFailure("News item with the specified ID not found"));
+      ArticalModel news = ArticalModel(
+          description: firstItem["description"],
+          images: firstItem["images"],);
+      return right(news);
+
     } catch (e) {
       if (e is DioError) {
         return left(ServerFailure.fromDioError(e));

@@ -10,4 +10,10 @@ class Api_Service {
     );
     return response.data;
   }
+  Future<void> getnotificaion(int id) async {
+    var response = await dio.get("https://alafdalnews.com/jsontable/loadnewsByID.php?id=$id"
+    );
+    return response.data;
+  }
+
 }
